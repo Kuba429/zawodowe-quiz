@@ -39,9 +39,9 @@
             "poprawna": "odp 1"
         }
     ],
-    "ee8": [
+    "ee08": [
         {
-            "pytanie": "pytanie ee8",
+            "pytanie": "pytanie ee08",
             "odpA": "odp 1",
             "odpB": "odp 2",
             "odpC": "odp 3",
@@ -57,7 +57,7 @@
             "poprawna": "odp 1"
         }
     ],
-    "ee9": [
+    "ee09": [
         {
             "pytanie": "jakies pytanie blabla",
             "odpA": "odp 1",
