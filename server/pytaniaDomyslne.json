@@ -1,0 +1,71 @@
+{
+    "e12": [
+        {
+            "pytanie": "tresc pytania",
+            "odpA": "odp 1",
+            "odpB": "odp 2",
+            "odpC": "odp 3",
+            "odpD": "odp 4",
+            "poprawna": "odp 1"
+        },
+        {
+            "pytanie": "jakies pytanie",
+            "odpA": "odp 1",
+            "odpB": "odp 2",
+            "odpC": "odp 3",
+            "odpD": "odp 4",
+            "obrazek": "costam",
+            "poprawna": "odp 2"
+        }
+    ],
+    "e13": [
+        {
+            "pytanie": "pytanie w e13",
+            "odpA": "odp 1",
+            "odpB": "odp 2",
+            "odpC": "odp 3",
+            "odpD": "odp 4",
+            "obrazek": "link do obrazka",
+            "poprawna": "odp 1"
+        }
+    ],
+    "e14": [
+        {
+            "pytanie": "jakies pytanie",
+            "odpA": "odp 1",
+            "odpB": "odp 2",
+            "odpC": "odp 3",
+            "odpD": "odp 4",
+            "poprawna": "odp 1"
+        }
+    ],
+    "ee8": [
+        {
+            "pytanie": "pytanie ee8",
+            "odpA": "odp 1",
+            "odpB": "odp 2",
+            "odpC": "odp 3",
+            "odpD": "odp 4",
+            "poprawna": "odp 1"
+        },
+        {
+            "pytanie": "kolejne pytanie",
+            "odpA": "odp 1",
+            "odpB": "odp 2",
+            "odpC": "odp 3",
+            "odpD": "odp 4",
+            "poprawna": "odp 1"
+        }
+    ],
+    "ee9": [
+        {
+            "pytanie": "jakies pytanie blabla",
+            "odpA": "odp 1",
+            "odpB": "odp 2",
+            "odpC": "odp 3",
+            "odpD": "odp 4",
+            "obrazek": "link",
+            "poprawna": "odp 1"
+        }
+    ]
+}
