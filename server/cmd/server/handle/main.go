@@ -16,6 +16,7 @@ import (
 
 func ResetBazy(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		baza.Reset(db)
 		w.Write([]byte("Baza zresetowana"))
 	}
@@ -23,6 +24,7 @@ func ResetBazy(db *sql.DB) http.HandlerFunc {
 
 func Pytanie(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		kwal := czytajKwalifikacje(r)
 		query := fmt.Sprintf("SELECT Id,Pytanie,OdpA,OdpB,OdpC,OdpD, Obrazek,Poprawna FROM %s ORDER BY RANDOM() LIMIT 1;", kwal)
 		rows := db.QueryRow(query)
