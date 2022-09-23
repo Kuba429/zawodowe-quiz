@@ -10,4 +10,4 @@ const (
 	Ee09 Kategoria = "ee09"
 )
 
-var WszystkieKategorie = [5]Kategoria{E12, E13, E14, Ee09, Ee09}
+var WszystkieKategorie = [5]Kategoria{E12, E13, E14, Ee08, Ee09}
