@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { Pytanie } from "../typy";
 
 type status = "success" | "error" | "loading";
 
@@ -26,7 +27,7 @@ export const usePStore = defineStore("pytanie-store", {
 				const p: Pytanie = JSON.parse(text);
 				this.pytanie = p;
 				this.odpowiedzi = [p.odpA, p.odpB, p.odpC, p.odpD];
-				this.poprawnaOdp = p.poprawna;
+				this.poprawnaOdp = this.odpowiedzi[p.poprawna];
 				this.wybranaOdp = "";
 				this.status = "success";
 			} catch (error) {

@@ -1,74 +1,237 @@
 {
     "e12": [
         {
-            "pytanie": "tresc pytania",
-            "odpA": "odp 1",
-            "odpB": "odp 2",
-            "odpC": "odp 3",
-            "odpD": "odp 4",
-            "poprawna": "odp 1"
+            "pytanie": "Przedstawiony na rysunku kolor zapisany w modelu RGB, w systemie szesnastkowym będzie zdefiniowany następująco",
+            "odpA": "71A0B2",
+            "odpB": "77A1C1",
+            "odpC": "77A0C1",
+            "odpD": "76A3C1",
+            "obrazek": "/zdjecia/e12_1_06_2020.png",
+            "poprawna": 2
         },
         {
-            "pytanie": "jakies pytanie",
-            "odpA": "odp 1",
-            "odpB": "odp 2",
-            "odpC": "odp 3",
-            "odpD": "odp 4",
-            "obrazek": "costam",
-            "poprawna": "odp 2"
+            "pytanie": "Notacja #108 oznacza zapis liczby w systemie",
+            "odpA": "oktalnym",
+            "odpB": "binarnym",
+            "odpC": "dziesiętnym",
+            "odpD": "heksadecymalnym",
+            "obrazek": "",
+            "poprawna": 3
+        },
+        {
+            "pytanie": "Magistrala komunikacyjna PCI ver. 2.2 (Peripheral Interconnect) jest standardem magistrali, zgodnie z którym szyna danych ma maksymalną szerokość",
+            "odpA": "16bitów",
+            "odpB": "32bitów",
+            "odpC": "64bitów",
+            "odpD": "128bitów",
+            "obrazek": "",
+            "poprawna": 1
+        },
+        {
+            "pytanie": "Układ na karcie graficznej, którego zadaniem jest zamiana cyfrowego sygnału generowanego poprzez kartę na sygnał analogowy, który może być wyświetlony poprzez monitor to",
+            "odpA": "RAMBUS",
+            "odpB": "RAMDAC",
+            "odpC": "głowica FM",
+            "odpD": "multiplekser",
+            "obrazek": "",
+            "poprawna": 1
+        },
+        {
+            "pytanie": "Który układ mikroprocesora jest odpowiedzialny między innymi za pobieranie rozkazów z pamięci oraz generowanie sygnałów sterujących?",
+            "odpA": "ALU",
+            "odpB": "FPU",
+            "odpC": "IU",
+            "odpD": "EU",
+            "obrazek": "",
+            "poprawna": 2
         }
     ],
     "e13": [
         {
-            "pytanie": "pytanie w e13",
-            "odpA": "odp 1",
-            "odpB": "odp 2",
-            "odpC": "odp 3",
-            "odpD": "odp 4",
-            "obrazek": "link do obrazka",
-            "poprawna": "odp 1"
+            "pytanie": "Rysunek przedstawia topologię",
+            "odpA": "gwiazdy",
+            "odpB": "magistrali",
+            "odpC": "rozszerzonejgwiazdy",
+            "odpD": "podwójnegopierścienia",
+            "obrazek": "/zdjecia/e.13-SG-22.06-1.png",
+            "poprawna": "C"
+        },
+        {
+            "pytanie": "Zgodnie z normą PN-EN 50174 rozplot kabla UTP nie powinien być większy niż",
+            "odpA": "10mm",
+            "odpB": "13mm",
+            "odpC": "20mm",
+            "odpD": "30mm",
+            "obrazek": "",
+            "poprawna": 1
+        },
+        {
+            "pytanie": "Strzałka na rysunku przedstawiającym schemat systemu sieciowego według normy PN-EN 50173 wskazuje okablowanie",
+            "odpA": "poziome",
+            "odpB": "pionowe",
+            "odpC": "kampusowe",
+            "odpD": "szkieletowe zewnętrzne",
+            "obrazek": "",
+            "poprawna": 1
+        },
+        {
+            "pytanie": "Zgodnie z normą TIA/EIA-568-B.1 kabel UTP 5e z przeplotem jest tworzony poprzez zamianę ułożenia we wtyczce 8P8C następujących par przewodów (odpowiednio według kolorów):",
+            "odpA": "biało-zielonyizielonyzbiało-brązowymibrązowym.",
+            "odpB": "biało-zielonyizielonyzbiało-niebieskiminiebieskim.",
+            "odpC": "biało-pomarańczowyipomarańczowyzbiało-zielonymizielonym.",
+            "odpD": "biało-pomarańczowyipomarańczowyzbiało-brązowymibrązowym.",
+            "obrazek": "",
+            "poprawna": 2
+        },
+        {
+            "pytanie": "Organizacją publikującą dokumenty RFC (Request For Comments) regulujące rozwój Internetu jest",
+            "odpA": "IETF(InternetEngineeringTaskForce).",
+            "odpB": "ANSI (American National Standards Institute).",
+            "odpC": "ISO (International Organization for Standarization).",
+            "odpD": "IEEE (The Institute of Electrical and Electronics Engineers).",
+            "obrazek": "",
+            "poprawna": 0
         }
     ],
     "e14": [
         {
-            "pytanie": "jakies pytanie",
-            "odpA": "odp 1",
-            "odpB": "odp 2",
-            "odpC": "odp 3",
-            "odpD": "odp 4",
-            "obrazek": "costam",
-            "poprawna": "odp 1"
+            "pytanie": "Podany wpis w pliku HTML oznacza, że",
+            "odpA": "kod HTML zapisano w wersji 5 języka.",
+            "odpB": "kod HTML zapisano w wersji 4 języka.",
+            "odpC": "wszystkie znaczniki w kodzie HTML należy zapisywać wielkimi literami.",
+            "odpD": "znaczniki zamykające są obowiązkowe w kodzie HTML, również dla znaczników samozamykających się.",
+            "obrazek": "/zdjecia/e.14-SG-22.06-1.png",
+            "poprawna": 1
+        },
+        {
+            "pytanie": "Kodowanie polskich znaków można zdefiniować w języku HTML za pomocą",
+            "odpA": "znacznika <title>",
+            "odpB": "znacznika <charset>",
+            "odpC": "atrybutu znacznika <p>",
+            "odpD": "atrybutu znacznika <meta>",
+            "obrazek": "",
+            "poprawna": 3
+        },
+        {
+            "pytanie": "Które z podanych par znaczników HTML mają wizualnie to samo działanie na stronie internetowej, jeżeli żadne style CSS nie zostały zdefiniowane?",
+            "odpA": "<p> i <h2>",
+            "odpB": "<b> i <big>",
+            "odpC": "<b> i <strong>",
+            "odpD": "<meta> i <title>",
+            "obrazek": "",
+            "poprawna": 2
+        },
+        {
+            "pytanie": "W języku HTML zapisano definicję tabeli. Który rysunek obrazuje efekt jej działania?",
+            "odpA": "Rysunek 1",
+            "odpB": "Rysunek 2",
+            "odpC": "Rysunek 3",
+            "odpD": "Rysunek 4",
+            "obrazek": "/zdjecia/e.14-SG-22.06-4.png",
+            "poprawna": 0
+        },
+        {
+            "pytanie": "W przedstawionym fragmencie formularza HTML zdefiniowano pole input, o którym można powiedzieć, że",
+            "odpA": "ma wpisany domyślny tekst „pole”.",
+            "odpB": "ukrywa wprowadzone do niego znaki.",
+            "odpC": "wyświetla wprowadzone do niego znaki.",
+            "odpD": "umożliwia wpisywanie tylko wartości liczbowych.",
+            "obrazek": "/zdjecia/e.14-SG-22.06-5.png",
+            "poprawna": 1
         }
     ],
     "ee08": [
         {
-            "pytanie": "pytanie ee08",
-            "odpA": "odp 1",
-            "odpB": "odp 2",
-            "odpC": "odp 3",
-            "odpD": "odp 4",
-            "obrazek": "costam",
-            "poprawna": "odp 1"
+            "pytanie": "Wykonaj konwersję liczy dziesiętnej 129(10) na postać binarną.",
+            "odpA": "1000001(2)",
+            "odpB": "10000001(2)",
+            "odpC": "100000001(2",
+            "odpD": "1000000001(2)",
+            "obrazek": "",
+            "poprawna": 1
         },
         {
-            "pytanie": "kolejne pytanie",
-            "odpA": "odp 1",
-            "odpB": "odp 2",
-            "odpC": "odp 3",
-            "odpD": "odp 4",
-            "obrazek": "costam",
-            "poprawna": "odp 1"
+            "pytanie": "Przedstawiony na rysunku symbol graficzny oznacza bramkę logiczną",
+            "odpA": "OR",
+            "odpB": "NOR",
+            "odpC": "AND",
+            "odpD": "NAND",
+            "obrazek": "/zdjecia/eE.08-SG-22.06-2.png",
+            "poprawna": 2
+        },
+        {
+            "pytanie": "Sygnał sterujący wysyłany przez procesor, umożliwiający zapis do urządzeń wejścia - wyjścia, został na schemacie oznaczony numerem",
+            "odpA": "1",
+            "odpB": "2",
+            "odpC": "3",
+            "odpD": "4",
+            "obrazek": "/zdjecia/eE.08-SG-22.06-3.png",
+            "poprawna": 3
+        },
+        {
+            "pytanie": "Który typ portu może być użyty do podłączenia dysku zewnętrznego do laptopa?",
+            "odpA": "AGP",
+            "odpB": "LPT",
+            "odpC": "USB",
+            "odpD": "DMA",
+            "obrazek": "",
+            "poprawna": 2
+        },
+        {
+            "pytanie": "Który z wymienionych interfejsów należy wybrać do podłączenia dysku SSD do płyty głównej komputera stacjonarnego, aby uzyskać największą prędkość zapisu i odczytu danych?",
+            "odpA": "ATA",
+            "odpB": "mSATA",
+            "odpC": "PCIExpress",
+            "odpD": "SATAExpress",
+            "obrazek": "",
+            "poprawna": 2
         }
     ],
     "ee09": [
         {
-            "pytanie": "jakies pytanie blabla",
-            "odpA": "odp 1",
-            "odpB": "odp 2",
-            "odpC": "odp 3",
-            "odpD": "odp 4",
-            "obrazek": "link",
-            "poprawna": "odp 1"
+            "pytanie": "Algorytm sortowania tablicy polegający na n-krotnym porównywaniu ze sobą dwóch sąsiadujących elementów tablicy i zamianie miejscami w przypadku spełnienia warunku jest nazywany sortowaniem",
+            "odpA": "szybkim",
+            "odpB": "przezwybór",
+            "odpC": "bąbelkowym",
+            "odpD": "przezscalanie",
+            "obrazek": "",
+            "poprawna": 2
+        },
+        {
+            "pytanie": "W sklepie z farbami jest ustalony schemat wyliczania ceny farby: za kolor niebieski i zielony przy pojemności 2 litry cena farby jest równa cenie bazowej + 20%. Wyrażenie logiczne zapisane w języku JavaScript sprawdzające tę regułę ma postać",
+            "odpA": "A",
+            "odpB": "B",
+            "odpC": "C",
+            "odpD": "D",
+            "obrazek": "/zdjecia/eE.09-SG-22.06-2.png",
+            "poprawna": 2
+        },
+        {
+            "pytanie": "Instrukcją równoważną funkcjonalnie do przedstawionej instrukcji JavaScript jest",
+            "odpA": "Kod 1",
+            "odpB": "Kod 2",
+            "odpC": "Kod 3",
+            "odpD": "Kod 4",
+            "obrazek": "/zdjecia/eE.09-SG-22.06-3.png",
+            "poprawna": 1
+        },
+        {
+            "pytanie": "Zmienna typu double może przyjąć wartości:",
+            "odpA": "＂Ala＂;'d'",
+            "odpB": "1,44;2,55",
+            "odpC": "2.4;4;3.2",
+            "odpD": "1979-12-05;12:33",
+            "obrazek": "",
+            "poprawna": 2
+        },
+        {
+            "pytanie": "W języku JavaScript metoda Math.random() ma za zadanie",
+            "odpA": "porównać dwa napisy",
+            "odpB": "zwrócić zaokrągloną liczbę",
+            "odpC": "zwrócićliczbępseudolosową",
+            "odpD": "zaokrąglić liczbę do najbliższej większej całkowitej",
+            "obrazek": "",
+            "poprawna": 2
         }
     ]
 }
