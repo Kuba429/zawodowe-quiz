@@ -5,5 +5,6 @@ export interface Pytanie {
 	odpB: string;
 	odpC: string;
 	odpD: string;
+	obrazek: string;
 	poprawna: number;
 }

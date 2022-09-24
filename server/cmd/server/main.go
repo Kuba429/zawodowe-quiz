@@ -8,6 +8,9 @@ import (
 )
 
 func Init(db *sql.DB) {
+	fs := http.FileServer(http.Dir("./zdjecia"))
+	http.Handle("/zdjecia/", http.StripPrefix("/zdjecia/", fs))
+
 	http.HandleFunc("/pytanie", handle.Pytanie(db))
 	http.HandleFunc("/baza/reset", handle.ResetBazy(db))
 

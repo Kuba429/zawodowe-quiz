@@ -25,6 +25,9 @@ export const usePStore = defineStore("pytanie-store", {
 				const res = await fetch(url);
 				const text = await (await res.blob()).text();
 				const p: Pytanie = JSON.parse(text);
+				if (p.obrazek) {
+					p.obrazek = "http://localhost:3000" + p.obrazek;
+				}
 				this.pytanie = p;
 				this.odpowiedzi = [p.odpA, p.odpB, p.odpC, p.odpD];
 				this.poprawnaOdp = this.odpowiedzi[p.poprawna];
