@@ -1,23 +1,20 @@
 <script lang="ts" setup>
-import { computed, reactive } from "vue";
+import { computed } from "vue";
+import { usePStore } from "../stores/pytanie";
 
-const { odpowiedz, odpStore } = defineProps<{
+const { odpowiedz } = defineProps<{
 	odpowiedz: string;
-	odpStore: {
-		poprawna: string;
-		wybrana: string;
-	};
 }>();
+const store = usePStore();
+const handleClick = () => {
+	if (store.wybranaOdp) return;
+	store.$patch({ wybranaOdp: odpowiedz });
+};
 
 const klasa = computed(() => ({
-	czerwony: odpStore.wybrana === odpowiedz,
-	zielony: odpStore.wybrana && odpowiedz === odpStore.poprawna,
+	czerwony: store.wybranaOdp === odpowiedz,
+	zielony: store.wybranaOdp && store.poprawnaOdp === odpowiedz,
 }));
-
-const handleClick = () => {
-	if (odpStore.wybrana) return;
-	odpStore.wybrana = odpowiedz;
-};
 </script>
 <template>
 	<div :class="klasa" @click="handleClick">

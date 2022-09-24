@@ -1,25 +1,14 @@
 <script lang="ts" setup>
-import { reactive } from "vue";
+import { usePStore } from "../stores/pytanie";
 import Odpowiedz from "./Odpowiedz.vue";
-
-const { pytanie } = defineProps<{ pytanie: Pytanie }>();
-const odpowiedzi = [pytanie.odpA, pytanie.odpB, pytanie.odpC, pytanie.odpD];
-const odpStore = reactive({
-	poprawna: pytanie.poprawna,
-	wybrana: "",
-});
+const store = usePStore();
 </script>
 <template>
 	<div class="flex">
-		{{ pytanie.pytanie }}
+		{{ store.pytanie?.pytanie }}
 		<div class="grid">
-			<Odpowiedz
-				v-for="odp in odpowiedzi"
-				:odpowiedz="odp"
-				:odp-store="odpStore"
-			/>
+			<Odpowiedz v-for="odp in store.odpowiedzi" :odpowiedz="odp" />
 		</div>
-		{{ odpStore }}
 	</div>
 </template>
 <style scoped>
