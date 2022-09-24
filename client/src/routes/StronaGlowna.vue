@@ -12,4 +12,4 @@ const kategorie = ["e12", "e13", "e14", "ee08", "ee09"];
 		</li>
 	</ul>
 </template>
-<style lang="scss"></style>
+<style></style>

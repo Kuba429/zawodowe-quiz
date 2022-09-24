@@ -1,12 +1,13 @@
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
+import Pytanie from "../components/Pytanie.vue";
 
 const pytanie = ref<Pytanie>();
-const jestOk = ref(true);
+const error = ref<string>();
 const { kategoria } = useRoute().params;
 
-onMounted(async () => {
+const pobierzNowePytanie = async () => {
 	let url = new URL("http://localhost:3000/pytanie");
 	kategoria &&
 		(url.search = new URLSearchParams({
@@ -16,20 +17,17 @@ onMounted(async () => {
 		const res = await fetch(url);
 		const text = await (await res.blob()).text();
 		pytanie.value = JSON.parse(text);
-	} catch (error) {
-		jestOk.value = false;
-		console.error(error);
+	} catch (err) {
+		error.value = err as string;
+		console.error(err);
 	}
-	return () => {
-		console.log("returnasdasd");
-	};
-});
+};
+onMounted(pobierzNowePytanie);
 </script>
 <template>
-	<div v-if="jestOk">
-		<h1>{{ kategoria || "Wszystkie kategorie" }}</h1>
-		<pre>{{ pytanie }}</pre>
-	</div>
+	<h1>{{ kategoria || "Wszystkie kategorie" }}</h1>
+	<Pytanie v-if="pytanie" :pytanie="pytanie" />
+	<div v-else-if="!error">Ładowanie...</div>
 	<div v-else><h1>Nie można połączyć się z serwerem</h1></div>
 </template>
 <style lang="scss"></style>
