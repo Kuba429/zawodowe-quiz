@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-import "./style.css";
+import "./style/global.scss";
 import App from "./App.vue";
 import StronaGlowna from "./routes/StronaGlowna.vue";
 import Kategoria from "./routes/Kategoria.vue";
