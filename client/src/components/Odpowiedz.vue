@@ -12,6 +12,7 @@ const handleClick = () => {
 };
 
 const klasa = computed(() => ({
+	active: !store.wybranaOdp,
 	czerwony: store.wybranaOdp === odpowiedz,
 	zielony: store.wybranaOdp && store.poprawnaOdp === odpowiedz,
 }));
@@ -23,8 +24,7 @@ const klasa = computed(() => ({
 </template>
 <style scoped lang="scss">
 @use "../style/zmienne.scss" as *;
-button,
-div {
+button {
 	padding: 10px;
 	border-radius: 7px;
 	border: solid 1px $niebieski;
@@ -37,7 +37,6 @@ div {
 		$kolor: rgb(255, 72, 72);
 		background-color: $kolor;
 		border-color: $kolor;
-
 		color: white;
 	}
 	&.zielony {
@@ -45,6 +44,10 @@ div {
 		background-color: $kolor;
 		border-color: $kolor;
 		color: white;
+	}
+	transition: ease all 0.2s;
+	&.active:active {
+		transform: scale(98%);
 	}
 }
 </style>

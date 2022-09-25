@@ -8,5 +8,6 @@
 #app {
 	max-width: 90vw;
 	margin: auto;
+	padding-bottom: 20px;
 }
 </style>

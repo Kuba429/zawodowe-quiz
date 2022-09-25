@@ -92,6 +92,13 @@ h1 {
 			color: white;
 			text-decoration: none;
 			padding: 5px 15px;
+			border: 1px solid $niebieski;
+			transition: ease all 0.2s;
+			transition-property: color background-color;
+			&:hover {
+				background-color: white;
+				color: $niebieski;
+			}
 		}
 	}
 }
