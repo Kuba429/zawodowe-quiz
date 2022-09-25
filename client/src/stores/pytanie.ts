@@ -29,8 +29,16 @@ export const usePStore = defineStore("pytanie-store", {
 					p.obrazek = "http://localhost:3000" + p.obrazek;
 				}
 				this.pytanie = p;
-				this.odpowiedzi = [p.odpA, p.odpB, p.odpC, p.odpD];
-				this.poprawnaOdp = this.odpowiedzi[p.poprawna];
+				const odpowiedzi = [p.odpA, p.odpB, p.odpC, p.odpD];
+
+				this.poprawnaOdp = odpowiedzi[p.poprawna];
+				this.odpowiedzi = odpowiedzi
+					.map((v) => ({
+						v,
+						idx: Math.random(),
+					}))
+					.sort((a, b) => b.idx - a.idx)
+					.map(({ v }) => v);
 				this.wybranaOdp = "";
 				this.status = "success";
 			} catch (error) {

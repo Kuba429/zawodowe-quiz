@@ -20,6 +20,11 @@ const store = usePStore();
 .flex {
 	display: flex;
 	flex-direction: column;
+	background-color: white;
+	border-radius: 10px;
+	margin: 1rem auto;
+	padding: 1rem;
+	gap: 1rem;
 }
 .grid {
 	display: grid;
@@ -29,5 +34,12 @@ const store = usePStore();
 }
 img {
 	object-fit: contain;
+}
+
+@media (max-width: 400px) {
+	.grid {
+		grid-template-rows: repeat(4 1fr);
+		grid-template-columns: 1fr;
+	}
 }
 </style>

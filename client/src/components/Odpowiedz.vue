@@ -17,18 +17,34 @@ const klasa = computed(() => ({
 }));
 </script>
 <template>
-	<div :class="klasa" @click="handleClick">
+	<button :class="klasa" @click="handleClick">
 		{{ odpowiedz }}
-	</div>
+	</button>
 </template>
 <style scoped lang="scss">
+@use "../style/zmienne.scss" as *;
+button,
 div {
-	background-color: gray;
+	padding: 10px;
+	border-radius: 7px;
+	border: solid 1px $niebieski;
+	color: $niebieski;
+	background-color: white;
+	font-size: 1rem;
+	text-align: left;
+	cursor: pointer;
 	&.czerwony {
-		background-color: red;
+		$kolor: rgb(255, 72, 72);
+		background-color: $kolor;
+		border-color: $kolor;
+
+		color: white;
 	}
 	&.zielony {
-		background-color: green;
+		$kolor: rgb(0, 208, 0);
+		background-color: $kolor;
+		border-color: $kolor;
+		color: white;
 	}
 }
 </style>

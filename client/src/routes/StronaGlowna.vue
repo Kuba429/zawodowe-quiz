@@ -1,24 +1,40 @@
 <script lang="ts" setup>
 const kategorie = [
 	{
-		nazwa: "ee08",
+		naglowek: "Ee08",
+		link: "/pytanie/ee08",
+		zdjecie: "/kategorie-zdjecia/ee08.jpg",
 		opis: "Montaż i eksploatacja systemów komputerowych, urządzeń peryferyjnych i sieci",
 	},
 	{
-		nazwa: "ee09",
+		naglowek: "Ee09",
+		zdjecie: "/kategorie-zdjecia/ee09.jpg",
+		link: "/pytanie/ee09",
 		opis: "Programowanie, tworzenie i administrowanie stronami internetowymi i bazami danych",
 	},
 	{
-		nazwa: "e12",
+		naglowek: "E12",
+		zdjecie: "/kategorie-zdjecia/e12.jpg",
+		link: "/pytanie/e12",
 		opis: "Montaż i eksploatacja komputerów osobistych oraz urządzeń peryferyjnych",
 	},
 	{
-		nazwa: "e13",
+		naglowek: "E13",
+		zdjecie: "/kategorie-zdjecia/e13.jpg",
+		link: "/pytanie/e13",
 		opis: "Projektowanie lokalnych sieci komputerowych i administrowanie sieciami",
 	},
 	{
-		nazwa: "e14",
+		naglowek: "E14",
+		zdjecie: "/kategorie-zdjecia/e14.jpg",
+		link: "/pytanie/e14",
 		opis: "Tworzenie aplikacji internetowych i baz danych oraz administrowanie bazami",
+	},
+	{
+		naglowek: "Wszystko",
+		zdjecie: "/kategorie-zdjecia/wszystko.jpg",
+		link: "/pytanie",
+		opis: "Pomieszane pytania z każdej kategorii",
 	},
 ];
 </script>
@@ -26,10 +42,10 @@ const kategorie = [
 	<h1>Egzamin zawodowy - Technik Informatyk</h1>
 	<div class="container">
 		<div v-for="k in kategorie">
-			<img :src="`/kategorie-zdjecia/${k.nazwa}.jpg`" alt="" />
-			<h3>{{ k.nazwa }}</h3>
+			<img :src="k.zdjecie" alt="" />
+			<h3>{{ k.naglowek }}</h3>
 			<p>{{ k.opis }}</p>
-			<RouterLink :to="'/pytanie/' + k.nazwa">Losuj Pytanie</RouterLink>
+			<RouterLink :to="k.link">Losuj Pytanie</RouterLink>
 		</div>
 	</div>
 </template>
@@ -44,8 +60,7 @@ h1 {
 	flex-basis: 100%;
 	justify-content: center;
 	gap: 1rem;
-	max-width: 90vw;
-	margin: auto;
+	width: 100%;
 	padding-bottom: 50px;
 	& > div {
 		width: 300px;
@@ -72,7 +87,7 @@ h1 {
 		}
 		a {
 			margin: 10px;
-			background-color: $niebeski;
+			background-color: $niebieski;
 			border-radius: 4px;
 			color: white;
 			text-decoration: none;

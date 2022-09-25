@@ -4,4 +4,9 @@
 	<RouterView />
 </template>
 
-<style></style>
+<style>
+#app {
+	max-width: 90vw;
+	margin: auto;
+}
+</style>

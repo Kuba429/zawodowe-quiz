@@ -12,8 +12,28 @@ onMounted(() => {
 });
 </script>
 <template>
-	<h1>{{ kategoria || "Wszystkie kategorie" }}</h1>
-	<button @click="store.nowePytanie">Losuj nowe pytanie</button>
+	<h2>{{ kategoria || "Wszystkie kategorie" }}</h2>
 	<Pytanie v-if="store.pytanie && store.status === 'success'" />
+	<button class="nowe-pytanie" @click="store.nowePytanie">
+		Nowe pytanie
+	</button>
 </template>
-<style lang="scss"></style>
+<style lang="scss">
+@use "../style/zmienne.scss" as *;
+h2 {
+	text-align: center;
+	text-transform: capitalize;
+}
+.nowe-pytanie {
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+	background-color: $niebieski;
+	border-radius: 6px;
+	border: none;
+	color: white;
+	padding: 5px 10px;
+	font-size: 1rem;
+	cursor: pointer;
+}
+</style>
