@@ -53,6 +53,7 @@ const kategorie = [
 @use "../style/zmienne.scss" as *;
 h1 {
 	text-align: center;
+	color: $niebieski;
 }
 .container {
 	display: flex;
