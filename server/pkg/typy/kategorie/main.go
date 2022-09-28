@@ -10,4 +10,5 @@ const (
 	Ee09 Kategoria = "ee09"
 )
 
-var WszystkieKategorie = [5]Kategoria{E12, E13, E14, Ee08, Ee09}
+// brak statycznego rozmiaru aby można było użyć w funkcji "czyZawiera" (cmd/server/handle/main)
+var WszystkieKategorie = []Kategoria{E12, E13, E14, Ee08, Ee09}

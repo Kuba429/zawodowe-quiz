@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"log"
 	"math/rand"
 	"net/http"
 	"time"
@@ -37,19 +38,48 @@ func Pytanie(db *sql.DB) http.HandlerFunc {
 	}
 }
 
+func WszystkiePytania(db *sql.DB) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		kwal := kategorie.Kategoria(r.URL.Query().Get("kwal"))
+		if !czyZawiera(kategorie.WszystkieKategorie, kwal) {
+			w.WriteHeader(http.StatusNotFound)
+			return
+		}
+		query := fmt.Sprintf("SELECT Id,Pytanie,OdpA,OdpB,OdpC,OdpD,Obrazek,Poprawna FROM %s ORDER BY Id;", kwal)
+		rows, err := db.Query(query)
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusNotFound)
+			return
+		}
+		var pytania []typy.Pytanie
+		for rows.Next() {
+			var p typy.Pytanie
+			rows.Scan(&p.Id, &p.Pytanie, &p.OdpA, &p.OdpB, &p.OdpC, &p.OdpD, &p.Obrazek, &p.Poprawna)
+			pytania = append(pytania, p)
+		}
+		resJson, _ := json.Marshal(&pytania)
+		w.Write(resJson)
+	}
+}
+
 func czytajKwalifikacje(r *http.Request) kategorie.Kategoria {
 	kwalQuery := kategorie.Kategoria(r.URL.Query().Get("kwal"))
-	queryOk := false
-	for _, k := range kategorie.WszystkieKategorie {
-		if kwalQuery == k {
-			queryOk = true
-			break
-		}
-	}
+	queryOk := czyZawiera(kategorie.WszystkieKategorie, kwalQuery)
 	if !queryOk {
 		src := rand.NewSource(time.Now().UnixMicro())
 		losowaLiczba := rand.New(src).Intn(len(kategorie.WszystkieKategorie))
 		kwalQuery = kategorie.WszystkieKategorie[losowaLiczba]
 	}
 	return kwalQuery
+}
+
+func czyZawiera[T comparable](slice []T, val T) bool {
+	for _, k := range slice {
+		if k == val {
+			return true
+		}
+	}
+	return false
 }

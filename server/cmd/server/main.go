@@ -12,6 +12,7 @@ func Init(db *sql.DB) {
 	http.Handle("/zdjecia/", http.StripPrefix("/zdjecia/", fs))
 
 	http.HandleFunc("/pytanie", handle.Pytanie(db))
+	http.HandleFunc("/wszystkie-pytania", handle.WszystkiePytania(db))
 	http.HandleFunc("/baza/reset", handle.ResetBazy(db))
 
 	log.Fatal(http.ListenAndServe(":3000", nil))
