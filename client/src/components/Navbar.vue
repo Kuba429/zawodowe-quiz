@@ -15,7 +15,7 @@ onMounted(() => {
 			<RouterLink to="/">Strona Główna</RouterLink>
 			<div class="spacer"></div>
 			<RouterLink to="/pytanie">Pytanie</RouterLink>
-			<RouterLink to="/">Panel</RouterLink>
+			<RouterLink to="/panel">Panel</RouterLink>
 		</nav>
 	</div>
 </template>
@@ -43,8 +43,31 @@ onMounted(() => {
 			flex-grow: 1;
 		}
 		a {
+			position: relative;
 			color: inherit;
 			text-decoration: none;
+			&::after {
+				position: absolute;
+				content: "";
+				bottom: 0;
+				left: 0;
+				width: 0;
+				height: 2px;
+				background-color: $niebieski;
+				transition: ease all 0.2s;
+			}
+			&:hover:not(.router-link-active) {
+				&::after {
+					background-color: rgba($color: $niebieski, $alpha: 0.5);
+				}
+			}
+			&:hover,
+			&.router-link-active {
+				&::after {
+					content: "";
+					width: 100%;
+				}
+			}
 		}
 	}
 }

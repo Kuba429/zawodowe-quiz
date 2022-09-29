@@ -8,3 +8,5 @@ export interface Pytanie {
 	obrazek: string;
 	poprawna: number;
 }
+
+export type kategoria = "e12" | "e13" | "e14" | "ee08" | "ee09";
