@@ -1,0 +1,33 @@
+// modal
+@keyframes modal-in {
+	from {
+		transform: translate(-50%, -100vh);
+	}
+	to {
+		transform: translate(-50%, -50%);
+	}
+}
+@keyframes modal-out {
+	from {
+		transform: translate(-50%, -50%);
+	}
+	to {
+		transform: translate(-50%, -100vh);
+	}
+}
+@keyframes modal-tlo-in {
+	from {
+		backdrop-filter: blur(0);
+	}
+	to {
+		backdrop-filter: blur(5px);
+	}
+}
+@keyframes modal-tlo-out {
+	from {
+		backdrop-filter: blur(5px);
+	}
+	to {
+		backdrop-filter: blur(0);
+	}
+}

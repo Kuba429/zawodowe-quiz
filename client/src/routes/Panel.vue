@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
-import type { kategoria, Pytanie } from "../typy";
+import Modal from "../components/Modal.vue";
 import Tabela from "../components/Tabela.vue";
+import type { kategoria, Pytanie } from "../typy";
 
 const wszyskieKategorie: kategoria[] = ["e12", "e13", "e14", "ee08", "ee09"];
 
@@ -31,6 +32,7 @@ const fetchPytania = async (kat: kategoria) => {
 onMounted(() => fetchPytania(wszyskieKategorie[0]));
 </script>
 <template>
+	<Modal />
 	<label>
 		Kategoria:
 		<select @input="handleInput">
