@@ -31,9 +31,17 @@ const fetchPytania = async (kat: kategoria) => {
 onMounted(() => fetchPytania(wszyskieKategorie[0]));
 </script>
 <template>
-	<select @input="handleInput">
-		<option v-for="k in wszyskieKategorie" :value="k">{{ k }}</option>
-	</select>
+	<label>
+		Kategoria:
+		<select @input="handleInput">
+			<option v-for="k in wszyskieKategorie" :value="k">{{ k }}</option>
+		</select>
+	</label>
 	<Tabela :pytania="pytania" />
 </template>
-<style lang="scss"></style>
+<style scoped lang="scss">
+select {
+	margin: 20px 0;
+	max-width: 100%;
+}
+</style>
