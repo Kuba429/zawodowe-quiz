@@ -8,20 +8,11 @@ import (
 	"math/rand"
 	"net/http"
 	"time"
-	"zawodowe-quiz/pkg/baza"
 	"zawodowe-quiz/pkg/typy"
 	"zawodowe-quiz/pkg/typy/kategorie"
 
 	_ "github.com/mattn/go-sqlite3"
 )
-
-func ResetBazy(db *sql.DB) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin", "*")
-		baza.Reset(db)
-		w.Write([]byte("Baza zresetowana"))
-	}
-}
 
 func Pytanie(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {

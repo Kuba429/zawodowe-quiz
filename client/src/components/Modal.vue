@@ -2,6 +2,7 @@
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useModal } from "../stores/modal";
+import ModalForm from "./ModalForm.vue";
 
 const store = useModal();
 const { pytanie } = storeToRefs(store);
@@ -18,9 +19,7 @@ const zamknij = () => {
 </script>
 <template>
 	<div v-if="pytanie" @click="zamknij" id="modal-tlo" :class="klasa"></div>
-	<div v-if="pytanie" id="modal" :class="klasa">
-		asdasd{{ pytanie.pytanie }}
-	</div>
+	<ModalForm :zamknij="zamknij" v-if="pytanie" id="modal" :class="klasa" />
 </template>
 <style scoped lang="scss">
 @use "../style/zmienne.scss" as *;
