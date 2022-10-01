@@ -1,13 +1,10 @@
 <script lang="ts" setup>
 import { reactive } from "vue";
-import { Pytanie } from "../typy";
 import TrescPytania from "./TrescPytania.vue";
-import { useModal } from "../stores/modal";
+import { usePanel } from "../stores/panel";
 export type reactiveType = { id: number; element: HTMLElement | undefined }[];
 
-const { ustaw } = useModal();
-
-const { pytania } = defineProps<{ pytania: Pytanie[] }>();
+const store = usePanel();
 const pytaniaEl = reactive<reactiveType>([]);
 </script>
 <template>
@@ -23,8 +20,10 @@ const pytaniaEl = reactive<reactiveType>([]);
 			<th>Poprawna odpowiedź</th>
 			<th>Obraz</th>
 		</tr>
-		<tr v-for="p in pytania">
-			<td class="p"><button @click="() => ustaw(p)">Edytuj</button></td>
+		<tr v-for="p in store.pytania">
+			<td class="p">
+				<button @click="() => store.ustaw(p)">Edytuj</button>
+			</td>
 			<td class="p">{{ p.id }}</td>
 			<TrescPytania :p="p" :pytania-el="pytaniaEl" />
 			<td :class="{ p: true, poprawna: p.poprawna === 0 }">

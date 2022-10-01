@@ -2,32 +2,19 @@
 import { onMounted, ref } from "vue";
 import Modal from "../components/Modal.vue";
 import Tabela from "../components/Tabela.vue";
-import { useModal } from "../stores/modal";
+import { usePanel } from "../stores/panel";
 import type { kategoria, Pytanie } from "../typy";
 
 const wszyskieKategorie: kategoria[] = ["e12", "e13", "e14", "ee08", "ee09"];
 
-const pytania = ref<Pytanie[]>([]);
-const store = useModal();
+const store = usePanel();
 const handleInput = async (e: Event) => {
 	const kat = (e.target as HTMLSelectElement).value as kategoria;
 	store.$patch({ kategoria: kat });
-	fetchPytania(kat);
+	store.fetchPytania();
 };
-const fetchPytania = async (kat: kategoria) => {
-	const url = new URL("http://localhost:3000/wszystkie-pytania");
-	url.search = new URLSearchParams({
-		kwal: kat,
-	}).toString();
-	try {
-		const res = await fetch(url);
-		const text = await (await res.blob()).text();
-		pytania.value = JSON.parse(text);
-	} catch (error) {
-		console.error(error);
-	}
-};
-onMounted(() => fetchPytania(wszyskieKategorie[0]));
+
+onMounted(() => store.fetchPytania());
 </script>
 <template>
 	<Modal />
@@ -37,7 +24,7 @@ onMounted(() => fetchPytania(wszyskieKategorie[0]));
 			<option v-for="k in wszyskieKategorie" :value="k">{{ k }}</option>
 		</select>
 	</label>
-	<Tabela :pytania="pytania" />
+	<Tabela />
 </template>
 <style scoped lang="scss">
 select {

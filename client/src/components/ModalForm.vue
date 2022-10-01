@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { reactive } from "vue";
-import { useModal } from "../stores/modal";
+import { usePanel } from "../stores/panel";
 
 const { zamknij } = defineProps<{ zamknij: () => void }>();
-const store = useModal();
-const pytanie = reactive({ ...store.pytanie });
+const store = usePanel();
+const pytanie = reactive({ ...store.modalPytanie });
 
 const handleSubmit = async (e: Event) => {
 	e.preventDefault();

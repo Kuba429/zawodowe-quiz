@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
 import { ref } from "vue";
-import { useModal } from "../stores/modal";
+import { usePanel } from "../stores/panel";
 import ModalForm from "./ModalForm.vue";
 
-const store = useModal();
-const { pytanie } = storeToRefs(store);
+const store = usePanel();
+const { modalPytanie } = storeToRefs(store);
 
 const klasa = ref<"" | "wyjscie">("");
 const zamknij = () => {
@@ -18,8 +18,18 @@ const zamknij = () => {
 };
 </script>
 <template>
-	<div v-if="pytanie" @click="zamknij" id="modal-tlo" :class="klasa"></div>
-	<ModalForm :zamknij="zamknij" v-if="pytanie" id="modal" :class="klasa" />
+	<div
+		v-if="modalPytanie"
+		@click="zamknij"
+		id="modal-tlo"
+		:class="klasa"
+	></div>
+	<ModalForm
+		v-if="modalPytanie"
+		:zamknij="zamknij"
+		id="modal"
+		:class="klasa"
+	/>
 </template>
 <style scoped lang="scss">
 @use "../style/zmienne.scss" as *;
