@@ -4,6 +4,8 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"os"
+	"zawodowe-quiz/pkg/zdjecie"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -18,6 +20,10 @@ func Reset(db *sql.DB) {
 	// usuń wszystkie tabele
 	for kat := range pytania {
 		db.Exec(fmt.Sprintf("DROP TABLE %s;", kat))
+	}
+	// usun zdjęcia dodane przez użytkownikow (domyślne zdjęcia do pytań które nie zostaną usunięte są w folderze wyżej więc nie zostaną usunięte)
+	if err := os.RemoveAll(zdjecie.Folder); err != nil {
+		log.Println(err)
 	}
 	// utwórz tabele uzupełnij je pytaniami
 	// połącz wszystkie kwerendy w jedną aby ograniczyć zapytania do bazy danych

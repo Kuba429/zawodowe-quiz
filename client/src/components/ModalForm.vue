@@ -1,14 +1,20 @@
 <script lang="ts" setup>
+import { reactive } from "vue";
 import { useModal } from "../stores/modal";
 
 const { zamknij } = defineProps<{ zamknij: () => void }>();
 const store = useModal();
-const pytanie = { ...store.pytanie };
+const pytanie = reactive({ ...store.pytanie });
 
 const handleSubmit = async (e: Event) => {
 	e.preventDefault();
 	const formData = new FormData(e.target as HTMLFormElement);
-
+	if ((formData.get("obrazek") as File)?.size === 0) {
+		formData.delete("obrazek");
+		formData.set("obrazek", "");
+	} else if (!formData.has("obrazek")) {
+		formData.set("obrazek", pytanie.obrazek || "");
+	}
 	const res = await fetch("http://localhost:3000/update-pytanie", {
 		method: "post",
 		body: formData,
@@ -44,7 +50,10 @@ const handleSubmit = async (e: Event) => {
 				<option value="3">D</option>
 			</select>
 		</label>
-		<label>Obrazek: <input name="obrazek" type="file" /></label>
+		<label v-if="pytanie.obrazek">
+			<button @click="pytanie.obrazek = ''">usun</button>
+		</label>
+		<label v-else> Obrazek: <input name="obrazek" type="file" /> </label>
 		<button type="submit">submit</button>
 	</form>
 </template>

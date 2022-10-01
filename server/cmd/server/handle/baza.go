@@ -20,13 +20,17 @@ func ResetBazy(db *sql.DB) http.HandlerFunc {
 func UpdatePytanie(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
-		r.ParseForm()
-		// r.ParseMultipartForm(2048 * 2048)
-		_, err := zdjecie.Zapisz(r)
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
+		r.ParseMultipartForm(1024 * 1024)
+		nowePytanie := r.Form
+		if !nowePytanie.Has("obrazek") {
+			sciezka, err := zdjecie.Zapisz(r)
+			if err != nil {
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+				return
+			}
+			nowePytanie.Set("obrazek", sciezka)
 		}
+
 		w.Write([]byte("aaa"))
 	}
 }
