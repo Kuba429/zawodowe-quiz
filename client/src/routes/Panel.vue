@@ -2,14 +2,17 @@
 import { onMounted, ref } from "vue";
 import Modal from "../components/Modal.vue";
 import Tabela from "../components/Tabela.vue";
+import { useModal } from "../stores/modal";
 import type { kategoria, Pytanie } from "../typy";
 
 const wszyskieKategorie: kategoria[] = ["e12", "e13", "e14", "ee08", "ee09"];
 
 const pytania = ref<Pytanie[]>([]);
-
+const store = useModal();
 const handleInput = async (e: Event) => {
-	fetchPytania((e.target as HTMLSelectElement).value as kategoria);
+	const kat = (e.target as HTMLSelectElement).value as kategoria;
+	store.$patch({ kategoria: kat });
+	fetchPytania(kat);
 };
 const fetchPytania = async (kat: kategoria) => {
 	const url = new URL("http://localhost:3000/wszystkie-pytania");

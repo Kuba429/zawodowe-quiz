@@ -9,8 +9,8 @@ const pytanie = reactive({ ...store.pytanie });
 const handleSubmit = async (e: Event) => {
 	e.preventDefault();
 	const formData = new FormData(e.target as HTMLFormElement);
+	formData.set("kategoria", store.kategoria);
 	if ((formData.get("obrazek") as File)?.size === 0) {
-		formData.delete("obrazek");
 		formData.set("obrazek", "");
 	} else if (!formData.has("obrazek")) {
 		formData.set("obrazek", pytanie.obrazek || "");
