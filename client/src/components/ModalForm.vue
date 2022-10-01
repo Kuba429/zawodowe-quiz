@@ -10,9 +10,12 @@ const handleSubmit = async (e: Event) => {
 	e.preventDefault();
 	const formData = new FormData(e.target as HTMLFormElement);
 	formData.set("kategoria", store.kategoria);
+	formData.set("id", pytanie.id!.toString());
 	if ((formData.get("obrazek") as File)?.size === 0) {
 		formData.set("obrazek", "");
 	} else if (!formData.has("obrazek")) {
+		pytanie.obrazek = pytanie.obrazek?.split("http://localhost:3000")[1]; // do kazdego pytania dodawany jest adres serwera przy pobraniu. Nie jest on częścią prawdziwej ścieżki na serwerze dlatego należy go usunąć. Gdyby nie został usunięty adres byłby zapisany na serwerze i po kolejnym pobraniu kolejny adres zostałby dodany co sprawiloby, że adres wyglądałby np. tak: "http://abc.comhttp://abc.com/zdjecie/123" zamiast "http://abc.com/zdjecie/123"
+
 		formData.set("obrazek", pytanie.obrazek || "");
 	}
 	const res = await fetch("http://localhost:3000/update-pytanie", {
@@ -44,16 +47,19 @@ const handleSubmit = async (e: Event) => {
 		<label>
 			Poprawna odpowiedź:
 			<select name="poprawna">
-				<option value="0">A</option>
-				<option value="1">B</option>
-				<option value="2">C</option>
-				<option value="3">D</option>
+				<option
+					v-for="n in [0, 1, 2, 3]"
+					:selected="pytanie.poprawna === n"
+					:value="n"
+				>
+					{{ ["A", "B", "C", "D"][n] }}
+				</option>
 			</select>
 		</label>
 		<label v-if="pytanie.obrazek">
 			<button @click="pytanie.obrazek = ''">usun</button>
 		</label>
-		<label v-else> Obrazek: <input name="obrazek" type="file" /> </label>
+		<label v-else> Obrazek: <input name="obrazek" type="file" /></label>
 		<button type="submit">submit</button>
 	</form>
 </template>
