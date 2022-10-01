@@ -41,7 +41,12 @@ const pytaniaEl = reactive<reactiveType>([]);
 			</td>
 			<td>{{ ["A", "B", "C", "D"][p.poprawna] }}</td>
 			<td>
-				<a target="_blank" :href="p.obrazek">{{ p.obrazek }}</a>
+				<a
+					v-if="p.obrazek"
+					target="_blank"
+					:href="'http://localhost:3000' + p.obrazek"
+					>{{ "http://localhost:3000" + p.obrazek }}</a
+				>
 			</td>
 		</tr>
 	</table>

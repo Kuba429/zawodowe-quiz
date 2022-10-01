@@ -14,8 +14,6 @@ const handleSubmit = async (e: Event) => {
 	if ((formData.get("obrazek") as File)?.size === 0) {
 		formData.set("obrazek", "");
 	} else if (!formData.has("obrazek")) {
-		pytanie.obrazek = pytanie.obrazek?.split("http://localhost:3000")[1]; // do kazdego pytania dodawany jest adres serwera przy pobraniu. Nie jest on częścią prawdziwej ścieżki na serwerze dlatego należy go usunąć. Gdyby nie został usunięty adres byłby zapisany na serwerze i po kolejnym pobraniu kolejny adres zostałby dodany co sprawiloby, że adres wyglądałby np. tak: "http://abc.comhttp://abc.com/zdjecie/123" zamiast "http://abc.com/zdjecie/123"
-
 		formData.set("obrazek", pytanie.obrazek || "");
 	}
 	const res = await fetch("http://localhost:3000/update-pytanie", {

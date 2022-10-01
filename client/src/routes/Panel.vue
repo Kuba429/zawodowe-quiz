@@ -22,12 +22,7 @@ const fetchPytania = async (kat: kategoria) => {
 	try {
 		const res = await fetch(url);
 		const text = await (await res.blob()).text();
-		const pytaniaRaw: Pytanie[] = JSON.parse(text);
-		pytaniaRaw.forEach(
-			(p) =>
-				p.obrazek && (p.obrazek = "http://localhost:3000" + p.obrazek)
-		);
-		pytania.value = pytaniaRaw;
+		pytania.value = JSON.parse(text);
 	} catch (error) {
 		console.error(error);
 	}
