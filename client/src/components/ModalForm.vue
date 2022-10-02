@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { reactive } from "vue";
 import { usePanel } from "../stores/panel";
+import { Pytanie } from "../typy";
 
 const { zamknij } = defineProps<{ zamknij: () => void }>();
 const store = usePanel();
@@ -20,7 +21,10 @@ const handleSubmit = async (e: Event) => {
 		method: "post",
 		body: formData,
 	});
-	if (res.ok) zamknij();
+	if (res.ok) {
+		store.update((await res.json()) as Pytanie);
+		zamknij();
+	}
 	// todo handle error
 };
 </script>

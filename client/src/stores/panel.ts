@@ -8,6 +8,10 @@ export const usePanel = defineStore("modal-store", {
 		kategoria: "e12" as kategoria,
 	}),
 	actions: {
+		update(p: Pytanie) {
+			const idx = this.pytania.findIndex((x) => x.id === p.id);
+			this.pytania[idx] = p;
+		},
 		zamknij() {
 			this.modalPytanie = null;
 		},

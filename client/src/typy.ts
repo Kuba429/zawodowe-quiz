@@ -1,5 +1,6 @@
 export interface Pytanie {
 	id: number;
+	kategoria?: kategoria;
 	pytanie: string;
 	odpA: string;
 	odpB: string;
