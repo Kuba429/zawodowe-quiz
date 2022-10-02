@@ -61,7 +61,9 @@ const handleSubmit = async (e: Event) => {
 		<label v-if="pytanie.obrazek">
 			<button @click="pytanie.obrazek = ''">usun</button>
 		</label>
-		<label v-else> Obrazek: <input name="obrazek" type="file" /></label>
+		<label v-else>
+			Obrazek: <input name="obrazek" type="file" accept="image/*" />
+		</label>
 		<button type="submit">submit</button>
 	</form>
 </template>
