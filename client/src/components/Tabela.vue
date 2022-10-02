@@ -10,7 +10,6 @@ const pytaniaEl = reactive<reactiveType>([]);
 <template>
 	<table>
 		<tr>
-			<th></th>
 			<th>ID</th>
 			<th>Treść</th>
 			<th>Odpowiedź A</th>
@@ -20,32 +19,27 @@ const pytaniaEl = reactive<reactiveType>([]);
 			<th>Poprawna odpowiedź</th>
 			<th>Obraz</th>
 		</tr>
-		<tr v-for="p in store.pytania">
-			<td class="p">
-				<button @click="() => store.ustaw(p)">Edytuj</button>
-			</td>
-			<td class="p">{{ p.id }}</td>
+		<tr @click="store.ustaw(p)" v-for="p in store.pytania">
+			<td>{{ p.id }}</td>
 			<TrescPytania :p="p" :pytania-el="pytaniaEl" />
-			<td :class="{ p: true, poprawna: p.poprawna === 0 }">
+			<td :class="{ poprawna: p.poprawna === 0 }">
 				{{ p.odpA }}
 			</td>
-			<td :class="{ p: true, poprawna: p.poprawna === 1 }">
+			<td :class="{ poprawna: p.poprawna === 1 }">
 				{{ p.odpB }}
 			</td>
-			<td :class="{ p: true, poprawna: p.poprawna === 2 }">
+			<td :class="{ poprawna: p.poprawna === 2 }">
 				{{ p.odpC }}
 			</td>
-			<td :class="{ p: true, poprawna: p.poprawna === 3 }">
+			<td :class="{ poprawna: p.poprawna === 3 }">
 				{{ p.odpD }}
 			</td>
 			<td>{{ ["A", "B", "C", "D"][p.poprawna] }}</td>
 			<td>
-				<a
+				<img
 					v-if="p.obrazek"
-					target="_blank"
-					:href="'http://localhost:3000' + p.obrazek"
-					>{{ "http://localhost:3000" + p.obrazek }}</a
-				>
+					:src="'http://localhost:3000' + p.obrazek"
+				/>
 			</td>
 		</tr>
 	</table>
@@ -56,21 +50,36 @@ table {
 	width: 100%;
 	padding-right: 5vw;
 }
+
 tr,
 td,
 th {
 	border: 1px solid rgba($niebieski, 0.4);
 	text-align: center;
+	transition: ease all 0.2s;
 }
 th {
 	color: white;
 	background-color: $niebieski;
-}
-.p,
-th {
 	padding: 10px;
 }
-
+tr:not(:first-child) {
+	cursor: pointer;
+	&:hover {
+		background-color: rgba($niebieski, 0.2);
+	}
+}
+td {
+	padding: 10px;
+	--wysokosc: 50px;
+	height: var(--wysokosc);
+	img {
+		height: 100%;
+		max-height: 100%;
+		max-width: 500px;
+		object-fit: contain;
+	}
+}
 .poprawna {
 	background-color: rgba($color: #00d72f, $alpha: 0.3);
 }
@@ -78,7 +87,7 @@ th {
 // uwaga, mało czytelny css.
 // ustawia border-radius dla komórek na rogach tabeli
 tr {
-	$radius: 5px;
+	$radius: 8px;
 	&:first-child {
 		th:first-child {
 			border-top-left-radius: $radius;
