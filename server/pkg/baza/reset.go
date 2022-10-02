@@ -32,8 +32,8 @@ func Reset(db *sql.DB) {
 		fullQuery += fmt.Sprintf("CREATE TABLE %s (%s);", key, PolaTabeli)
 		for _, pytanie := range val {
 			fullQuery += fmt.Sprintf(`
-			INSERT INTO %s (Pytanie, OdpA, OdpB, OdpC, OdpD, Obrazek, Poprawna) VALUES ("%s","%s","%s","%s","%s","%s","%d");`,
-				key, pytanie.Pytanie, pytanie.OdpA, pytanie.OdpB, pytanie.OdpC, pytanie.OdpD, pytanie.Obrazek, pytanie.Poprawna)
+			INSERT INTO %s (Pytanie, Kategoria, OdpA, OdpB, OdpC, OdpD, Obrazek, Poprawna) VALUES ("%s","%s","%s","%s","%s","%s","%s","%d");`,
+				key, pytanie.Pytanie, key, pytanie.OdpA, pytanie.OdpB, pytanie.OdpC, pytanie.OdpD, pytanie.Obrazek, pytanie.Poprawna)
 		}
 	}
 	{
@@ -49,6 +49,7 @@ func Reset(db *sql.DB) {
 const PolaTabeli = `
 Id INTEGER PRIMARY KEY AUTOINCREMENT,
 Pytanie text NOT NULL,
+Kategoria text,
 OdpA text NOT NULL,
 OdpB text NOT NULL,
 OdpC text NOT NULL,
