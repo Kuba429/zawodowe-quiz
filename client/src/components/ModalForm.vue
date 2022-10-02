@@ -58,9 +58,11 @@ const handleSubmit = async (e: Event) => {
 				</option>
 			</select>
 		</label>
-		<label v-if="pytanie.obrazek">
+		<span v-if="pytanie.obrazek">
+			Obrazek:
+			<img :src="'http://localhost:3000' + pytanie.obrazek" alt="" />
 			<button @click="pytanie.obrazek = ''">usun</button>
-		</label>
+		</span>
 		<label v-else>
 			Obrazek: <input name="obrazek" type="file" accept="image/*" />
 		</label>
@@ -78,6 +80,14 @@ form {
 	textarea {
 		width: 100%;
 		max-width: 100%;
+	}
+	span {
+		img {
+			display: inline;
+			object-fit: contain;
+			height: 1em;
+			max-width: 70%;
+		}
 	}
 }
 </style>
