@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 import { usePanel } from "../stores/panel";
 import { Pytanie } from "../typy";
 
@@ -26,6 +26,13 @@ const handleSubmit = async (e: Event) => {
 		zamknij();
 	}
 	// todo handle error
+};
+
+const podgladZdjecia = ref<string>();
+const handleZdjecieInput = async (e: Event) => {
+	const x = (e.target as HTMLInputElement).files?.item(0);
+	if (!x) return;
+	podgladZdjecia.value = window.URL.createObjectURL(x);
 };
 </script>
 <template>
@@ -58,13 +65,24 @@ const handleSubmit = async (e: Event) => {
 				</option>
 			</select>
 		</label>
-		<span v-if="pytanie.obrazek">
+		<div class="obrazek-wrapper" v-if="pytanie.obrazek">
 			Obrazek:
 			<img :src="'http://localhost:3000' + pytanie.obrazek" alt="" />
 			<button @click="pytanie.obrazek = ''">usun</button>
-		</span>
-		<label v-else>
-			Obrazek: <input name="obrazek" type="file" accept="image/*" />
+		</div>
+		<label class="obrazek-wrapper" v-else>
+			Obrazek:
+			<img
+				v-if="podgladZdjecia"
+				:src="podgladZdjecia"
+				alt="podgląd zdjęcia"
+			/>
+			<input
+				@input="handleZdjecieInput"
+				name="obrazek"
+				type="file"
+				accept="image/*"
+			/>
 		</label>
 		<button type="submit">submit</button>
 	</form>
@@ -81,12 +99,26 @@ form {
 		width: 100%;
 		max-width: 100%;
 	}
-	span {
+	.obrazek-wrapper {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+
 		img {
 			display: inline;
 			object-fit: contain;
 			height: 1em;
 			max-width: 70%;
+		}
+		button {
+			border: none;
+			background-color: transparent;
+			color: red;
+			cursor: pointer;
+			&:hover {
+				background-color: rgba($color: red, $alpha: 0.1);
+				border-radius: 2px;
+			}
 		}
 	}
 }

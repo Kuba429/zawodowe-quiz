@@ -31,7 +31,7 @@ td {
 div {
 	text-align: left;
 	width: 120px;
-	height: 100px;
+	height: 20px;
 	min-width: 100px;
 	min-height: var(--wysokosc);
 	resize: both;

@@ -50,11 +50,10 @@ table {
 	width: 100%;
 	padding-right: 5vw;
 }
-
 tr,
 td,
 th {
-	border: 1px solid rgba($niebieski, 0.4);
+	border: 1px solid rgba($niebieski, 0.1);
 	text-align: center;
 	transition: ease all 0.2s;
 }
@@ -63,10 +62,16 @@ th {
 	background-color: $niebieski;
 	padding: 10px;
 }
-tr:not(:first-child) {
-	cursor: pointer;
-	&:hover {
-		background-color: rgba($niebieski, 0.2);
+tr {
+	&:nth-child(2n) {
+		background-color: rgba($color: $niebieski, $alpha: 0.08);
+	}
+	border: 1px solid rgba($niebieski, 1);
+	&:not(:first-child) {
+		cursor: pointer;
+		&:hover {
+			background-color: rgba($niebieski, 0.3);
+		}
 	}
 }
 td {
