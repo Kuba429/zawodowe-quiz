@@ -6,9 +6,10 @@ import { Pytanie } from "../typy";
 const { zamknij } = defineProps<{ zamknij: () => void }>();
 const store = usePanel();
 const pytanie = reactive({ ...store.modalPytanie });
-
+const status = ref<"sukces" | "blad" | "ladowanie">("sukces");
 const handleSubmit = async (e: Event) => {
 	e.preventDefault();
+	status.value = "ladowanie";
 	const formData = new FormData(e.target as HTMLFormElement);
 	formData.set("kategoria", store.kategoria);
 	formData.set("id", pytanie.id!.toString());
@@ -17,15 +18,21 @@ const handleSubmit = async (e: Event) => {
 	} else if (!formData.has("obrazek")) {
 		formData.set("obrazek", pytanie.obrazek || "");
 	}
-	const res = await fetch("http://localhost:3000/update-pytanie", {
-		method: "post",
-		body: formData,
-	});
-	if (res.ok) {
+	try {
+		const res = await fetch("http://localhost:3000/update-pytanie", {
+			method: "post",
+			body: formData,
+		});
+		if (!res.ok) {
+			status.value = "blad";
+			return;
+		}
+		status.value = "sukces";
 		store.update((await res.json()) as Pytanie);
 		zamknij();
+	} catch (error) {
+		status.value = "blad";
 	}
-	// todo handle error
 };
 
 const podgladZdjecia = ref<string>();
@@ -84,7 +91,13 @@ const handleZdjecieInput = async (e: Event) => {
 				accept="image/*"
 			/>
 		</label>
-		<button type="submit">submit</button>
+		<button v-if="status === 'sukces'" type="submit">submit</button>
+		<button v-else-if="status === 'blad'" type="submit">
+			spróbuj ponownie
+		</button>
+		<button v-else-if="status === 'ladowanie'" disabled type="submit">
+			Wysyłam
+		</button>
 	</form>
 </template>
 <style scoped lang="scss">
