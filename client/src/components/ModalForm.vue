@@ -46,7 +46,12 @@ const handleZdjecieInput = async (e: Event) => {
 	<form @submit="handleSubmit">
 		<label>
 			Tresc:
-			<textarea name="pytanie" :value="pytanie.pytanie" type="text" />
+			<textarea
+				rows="3"
+				name="pytanie"
+				:value="pytanie.pytanie"
+				type="text"
+			/>
 		</label>
 		<label>
 			Odp A: <input name="odpA" :value="pytanie.odpA" type="text" />
@@ -91,32 +96,88 @@ const handleZdjecieInput = async (e: Event) => {
 				accept="image/*"
 			/>
 		</label>
-		<button v-if="status === 'sukces'" type="submit">submit</button>
-		<button v-else-if="status === 'blad'" type="submit">
-			spróbuj ponownie
-		</button>
-		<button v-else-if="status === 'ladowanie'" disabled type="submit">
-			Wysyłam
-		</button>
+		<div class="button-wrapper">
+			<button @click="zamknij" type="button">anuluj</button>
+			<button v-if="status === 'sukces'" type="submit">Zatwierdź</button>
+			<button v-else-if="status === 'blad'" type="submit">
+				spróbuj ponownie
+			</button>
+			<button v-else-if="status === 'ladowanie'" disabled type="submit">
+				Wysyłam
+			</button>
+		</div>
 	</form>
 </template>
 <style scoped lang="scss">
+@use "../style/zmienne.scss" as *;
 form {
-	width: 80vw;
+	width: 60vw;
+	max-height: 90%;
 	display: flex;
 	gap: 1rem;
 	flex-direction: column;
 	overflow: hidden;
+	overflow-y: auto;
+	box-sizing: border-box;
 	padding: 2rem;
-	textarea {
+	border-radius: 10px;
+	font-size: 1rem;
+	label {
+		font-size: 1rem;
 		width: 100%;
-		max-width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: center;
+		input:not([type="file"]),
+		textarea {
+			font-size: inherit;
+			border: none;
+			border-radius: 10px;
+			padding: 10px;
+			background-color: rgba($color: $niebieski, $alpha: 0.08);
+			flex-grow: 1;
+		}
+
+		textarea {
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+	.button-wrapper {
+		display: flex;
+		width: 100%;
+
+		& > button {
+			background-color: rgba($color: $niebieski, $alpha: 0.08);
+			flex-grow: 1;
+			color: $niebieski;
+			border: none;
+			border-radius: 5px;
+			padding: 10px;
+			cursor: pointer;
+			font-size: inherit;
+			border: 1px solid transparent;
+			transition: ease all 0.2s;
+			&:hover {
+				border-color: $niebieski;
+			}
+		}
+		& > button:nth-child(2) {
+			flex-grow: 5;
+			background-color: $niebieski;
+			color: white;
+			margin-left: auto;
+			border: 1px solid transparent;
+			&:hover {
+				background-color: rgba($color: $niebieski, $alpha: 0.8);
+			}
+		}
 	}
 	.obrazek-wrapper {
 		display: flex;
 		align-items: center;
 		gap: 5px;
-
 		img {
 			display: inline;
 			object-fit: contain;
@@ -133,6 +194,13 @@ form {
 				border-radius: 2px;
 			}
 		}
+	}
+}
+
+@media (max-width: 520px) {
+	form {
+		width: 98vw;
+		max-width: 98vw;
 	}
 }
 </style>
