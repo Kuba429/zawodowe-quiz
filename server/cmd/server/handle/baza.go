@@ -8,6 +8,7 @@ import (
 	"strconv"
 	"zawodowe-quiz/pkg/baza"
 	"zawodowe-quiz/pkg/typy"
+	"zawodowe-quiz/pkg/typy/kategorie"
 	"zawodowe-quiz/pkg/zdjecie"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -26,15 +27,6 @@ func UpdatePytanie(db *sql.DB) http.HandlerFunc {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		r.ParseMultipartForm(1024 * 1024)
 
-		if !r.Form.Has("obrazek") {
-			sciezka, err := zdjecie.Zapisz(r)
-			if err != nil {
-				http.Error(w, err.Error(), http.StatusInternalServerError)
-				return
-			}
-			r.Form.Set("obrazek", sciezka)
-		}
-
 		pytanie := typy.Pytanie{
 			Pytanie:   r.Form.Get("pytanie"),
 			Kategoria: r.Form.Get("kategoria"),
@@ -46,6 +38,17 @@ func UpdatePytanie(db *sql.DB) http.HandlerFunc {
 		}
 		pytanie.Id, _ = strconv.Atoi(r.Form.Get("id"))
 		pytanie.Poprawna, _ = strconv.Atoi(r.Form.Get("poprawna"))
+
+		if !r.Form.Has("obrazek") {
+			sciezka, err := zdjecie.Zapisz(r)
+			if err != nil {
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+				return
+			}
+			pytanie.Obrazek = sciezka
+		}
+		// usun stare zdjecie zanim zostanie nadpisane
+		zdjecie.Usun(db, pytanie.Id, kategorie.Kategoria(pytanie.Kategoria))
 
 		query := fmt.Sprintf(`
 		UPDATE %s SET
@@ -62,7 +65,6 @@ func UpdatePytanie(db *sql.DB) http.HandlerFunc {
 		if _, err := db.Exec(query); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
-
 		pytanieJson, _ := json.Marshal(pytanie)
 		w.Write(pytanieJson)
 	}

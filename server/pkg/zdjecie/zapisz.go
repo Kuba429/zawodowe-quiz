@@ -9,7 +9,9 @@ import (
 	"time"
 )
 
-const Folder = "./zdjecia/uzytk"
+const FolderOgolny = "zdjecia"
+const FolderUzytkPrefix = "uzytk"
+const Folder = "./" + FolderOgolny + "/" + FolderUzytkPrefix
 
 func Zapisz(r *http.Request) (string, error) {
 	plik, fileHeader, err := r.FormFile("obrazek")
