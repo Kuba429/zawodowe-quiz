@@ -41,6 +41,11 @@ const handleZdjecieInput = async (e: Event) => {
 	if (!x) return;
 	podgladZdjecia.value = window.URL.createObjectURL(x);
 };
+
+const handleUsun = () => {
+	// TODO
+	console.log("usun");
+};
 </script>
 <template>
 	<form @submit="handleSubmit">
@@ -97,7 +102,9 @@ const handleZdjecieInput = async (e: Event) => {
 			/>
 		</label>
 		<div class="button-wrapper">
-			<button @click="zamknij" type="button">anuluj</button>
+			<button class="usun-pytanie" @click="handleUsun" type="button">
+				Usun
+			</button>
 			<button v-if="status === 'sukces'" type="submit">Zatwierdź</button>
 			<button v-else-if="status === 'blad'" type="submit">
 				spróbuj ponownie
@@ -149,9 +156,7 @@ form {
 		width: 100%;
 
 		& > button {
-			background-color: rgba($color: $niebieski, $alpha: 0.08);
 			flex-grow: 1;
-			color: $niebieski;
 			border: none;
 			border-radius: 5px;
 			padding: 10px;
@@ -161,6 +166,15 @@ form {
 			transition: ease all 0.2s;
 			&:hover {
 				border-color: $niebieski;
+			}
+		}
+		& > .usun-pytanie {
+			background-color: rgba($color: red, $alpha: 0.7);
+			color: white;
+			border: 1px solid transparent;
+			&:hover {
+				background-color: rgba($color: red, $alpha: 0.6);
+				border-color: red;
 			}
 		}
 		& > button:nth-child(2) {
