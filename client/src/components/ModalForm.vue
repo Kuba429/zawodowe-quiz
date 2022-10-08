@@ -46,7 +46,7 @@ const handleUsun = async () => {
 	if (!pytanie.id || !confirm("Czy na pewno chcesz usunąć pytanie?")) return;
 	const url = new URL("http://localhost:3000/usun-pytanie");
 	url.search = new URLSearchParams({
-		kwal: store.kategoria,
+		kategoria: store.kategoria,
 		idPytania: pytanie.id.toString(),
 	}).toString();
 	try {

@@ -18,8 +18,8 @@ import (
 func Pytanie(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
-		kwal := czytajKwalifikacje(r)
-		query := fmt.Sprintf("SELECT Id,Pytanie,OdpA,OdpB,OdpC,OdpD, Obrazek,Poprawna FROM %s ORDER BY RANDOM() LIMIT 1;", kwal)
+		kat := czytajKategorie(r)
+		query := fmt.Sprintf("SELECT Id,Pytanie,OdpA,OdpB,OdpC,OdpD, Obrazek,Poprawna FROM %s ORDER BY RANDOM() LIMIT 1;", kat)
 		rows := db.QueryRow(query)
 
 		var p typy.Pytanie
@@ -33,12 +33,12 @@ func Pytanie(db *sql.DB) http.HandlerFunc {
 func WszystkiePytania(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
-		kwal := kategorie.Kategoria(r.URL.Query().Get("kwal"))
-		if !slices.CzyZawiera(kategorie.WszystkieKategorie, kwal) {
+		kat := kategorie.Kategoria(r.URL.Query().Get("kategoria"))
+		if !slices.CzyZawiera(kategorie.WszystkieKategorie, kat) {
 			w.WriteHeader(http.StatusNotFound)
 			return
 		}
-		query := fmt.Sprintf("SELECT Id,Pytanie,OdpA,OdpB,OdpC,OdpD,Obrazek,Poprawna FROM %s ORDER BY Id;", kwal)
+		query := fmt.Sprintf("SELECT Id,Pytanie,OdpA,OdpB,OdpC,OdpD,Obrazek,Poprawna FROM %s ORDER BY Id;", kat)
 		rows, err := db.Query(query)
 		if err != nil {
 			log.Println(err)
@@ -56,13 +56,13 @@ func WszystkiePytania(db *sql.DB) http.HandlerFunc {
 	}
 }
 
-func czytajKwalifikacje(r *http.Request) kategorie.Kategoria {
-	kwalQuery := kategorie.Kategoria(r.URL.Query().Get("kwal"))
-	queryOk := slices.CzyZawiera(kategorie.WszystkieKategorie, kwalQuery)
+func czytajKategorie(r *http.Request) kategorie.Kategoria {
+	katQuery := kategorie.Kategoria(r.URL.Query().Get("kategoria"))
+	queryOk := slices.CzyZawiera(kategorie.WszystkieKategorie, katQuery)
 	if !queryOk {
 		src := rand.NewSource(time.Now().UnixMicro())
 		losowaLiczba := rand.New(src).Intn(len(kategorie.WszystkieKategorie))
-		kwalQuery = kategorie.WszystkieKategorie[losowaLiczba]
+		katQuery = kategorie.WszystkieKategorie[losowaLiczba]
 	}
-	return kwalQuery
+	return katQuery
 }

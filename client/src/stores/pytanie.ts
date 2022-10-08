@@ -18,7 +18,7 @@ export const usePStore = defineStore("pytanie-store", {
 			const url = new URL("http://localhost:3000/pytanie");
 			this.kategoria &&
 				(url.search = new URLSearchParams({
-					kwal: this.kategoria,
+					kategoria: this.kategoria,
 				}).toString());
 
 			try {

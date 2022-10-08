@@ -26,7 +26,7 @@ export const usePanel = defineStore("modal-store", {
 		async fetchPytania() {
 			const url = new URL("http://localhost:3000/wszystkie-pytania");
 			url.search = new URLSearchParams({
-				kwal: this.kategoria,
+				kategoria: this.kategoria,
 			}).toString();
 			try {
 				const res = await fetch(url);
