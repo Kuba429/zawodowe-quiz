@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"zawodowe-quiz/pkg/zdjecie"
+	"zawodowe-quiz/cmd/zdjecie"
 
 	_ "github.com/mattn/go-sqlite3"
 )

@@ -8,6 +8,7 @@ import (
 	"math/rand"
 	"net/http"
 	"time"
+	"zawodowe-quiz/pkg/slices"
 	"zawodowe-quiz/pkg/typy"
 	"zawodowe-quiz/pkg/typy/kategorie"
 
@@ -33,7 +34,7 @@ func WszystkiePytania(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		kwal := kategorie.Kategoria(r.URL.Query().Get("kwal"))
-		if !czyZawiera(kategorie.WszystkieKategorie, kwal) {
+		if !slices.CzyZawiera(kategorie.WszystkieKategorie, kwal) {
 			w.WriteHeader(http.StatusNotFound)
 			return
 		}
@@ -57,20 +58,11 @@ func WszystkiePytania(db *sql.DB) http.HandlerFunc {
 
 func czytajKwalifikacje(r *http.Request) kategorie.Kategoria {
 	kwalQuery := kategorie.Kategoria(r.URL.Query().Get("kwal"))
-	queryOk := czyZawiera(kategorie.WszystkieKategorie, kwalQuery)
+	queryOk := slices.CzyZawiera(kategorie.WszystkieKategorie, kwalQuery)
 	if !queryOk {
 		src := rand.NewSource(time.Now().UnixMicro())
 		losowaLiczba := rand.New(src).Intn(len(kategorie.WszystkieKategorie))
 		kwalQuery = kategorie.WszystkieKategorie[losowaLiczba]
 	}
 	return kwalQuery
-}
-
-func czyZawiera[T comparable](slice []T, val T) bool {
-	for _, k := range slice {
-		if k == val {
-			return true
-		}
-	}
-	return false
 }

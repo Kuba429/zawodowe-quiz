@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { sortUserPlugins } from "vite";
 import { kategoria, Pytanie } from "../typy";
 
 export const usePanel = defineStore("modal-store", {
@@ -11,6 +12,10 @@ export const usePanel = defineStore("modal-store", {
 		update(p: Pytanie) {
 			const idx = this.pytania.findIndex((x) => x.id === p.id);
 			this.pytania[idx] = p;
+		},
+		usun(id: number) {
+			const idx = this.pytania.findIndex((x) => x.id === id);
+			this.pytania.splice(idx, 1);
 		},
 		zamknij() {
 			this.modalPytanie = null;
@@ -25,8 +30,7 @@ export const usePanel = defineStore("modal-store", {
 			}).toString();
 			try {
 				const res = await fetch(url);
-				const text = await (await res.blob()).text();
-				this.pytania = JSON.parse(text);
+				this.pytania = await res.json();
 			} catch (error) {
 				console.error(error);
 			}

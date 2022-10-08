@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"zawodowe-quiz/cmd/zdjecie"
 	"zawodowe-quiz/pkg/baza"
 	"zawodowe-quiz/pkg/typy"
 	"zawodowe-quiz/pkg/typy/kategorie"
-	"zawodowe-quiz/pkg/zdjecie"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -67,5 +67,23 @@ func UpdatePytanie(db *sql.DB) http.HandlerFunc {
 		}
 		pytanieJson, _ := json.Marshal(pytanie)
 		w.Write(pytanieJson)
+	}
+}
+
+func UsunPytanie(db *sql.DB) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		kwal := kategorie.Kategoria(r.URL.Query().Get("kwal"))
+		idPytaniaRaw := r.URL.Query().Get("idPytania")
+		idPytania, err := strconv.Atoi(idPytaniaRaw)
+		if err != nil || len(idPytaniaRaw) < 1 || len(kwal) < 1 {
+			http.Error(w, "Nie można odczytać potrzebnych informacji o pytaniu", http.StatusInternalServerError)
+		}
+		zdjecie.Usun(db, idPytania, kwal)
+		query := fmt.Sprintf("DELETE FROM %s WHERE Id=%d;", kwal, idPytania)
+		if _, err := db.Exec(query); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+		w.Write([]byte(fmt.Sprintf("Usunięto pytanie o id %d i kategorii %s", idPytania, kwal)))
 	}
 }

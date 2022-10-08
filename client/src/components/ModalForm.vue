@@ -42,9 +42,22 @@ const handleZdjecieInput = async (e: Event) => {
 	podgladZdjecia.value = window.URL.createObjectURL(x);
 };
 
-const handleUsun = () => {
-	// TODO
-	console.log("usun");
+const handleUsun = async () => {
+	if (!pytanie.id || !confirm("Czy na pewno chcesz usunąć pytanie?")) return;
+	const url = new URL("http://localhost:3000/usun-pytanie");
+	url.search = new URLSearchParams({
+		kwal: store.kategoria,
+		idPytania: pytanie.id.toString(),
+	}).toString();
+	try {
+		const res = await fetch(url);
+		if (res.ok) {
+			store.usun(pytanie.id);
+			zamknij();
+		}
+	} catch (error) {
+		console.error(error);
+	}
 };
 </script>
 <template>
