@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
 import { usePanel } from "../stores/panel";
-import { Pytanie } from "../typy";
+import { Pytanie, statusType } from "../typy";
 
 const { zamknij } = defineProps<{ zamknij: () => void }>();
 const store = usePanel();
 const pytanie = reactive({ ...store.modalPytanie });
-const status = ref<"sukces" | "blad" | "ladowanie">("sukces");
+const status = ref<statusType>("sukces");
 const handleSubmit = async (e: Event) => {
 	e.preventDefault();
 	status.value = "ladowanie";

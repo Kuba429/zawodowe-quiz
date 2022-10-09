@@ -19,3 +19,5 @@ export const wszyskieKategorie: kategoria[] = [
 	"ee08",
 	"ee09",
 ];
+
+export type statusType = "sukces" | "blad" | "ladowanie";

@@ -1,13 +1,26 @@
 <script setup lang="ts">
-import { wszyskieKategorie } from "../typy";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { statusType, wszyskieKategorie } from "../typy";
+
+const router = useRouter();
+const status = ref<statusType>("sukces");
 const handleSubmit = async (e: Event) => {
+	status.value = "ladowanie";
 	e.preventDefault();
 	const formData = new FormData(e.target as HTMLFormElement);
-	const res = await fetch("http://localhost:3000/dodaj-pytanie", {
-		method: "post",
-		body: formData,
-	});
-	console.log(res);
+	try {
+		const res = await fetch("http://localhost:3000/dodaj-pytanie", {
+			method: "post",
+			body: formData,
+		});
+		if (!res.ok) throw new Error(await res.text());
+		status.value = "sukces";
+		router.push("/panel");
+	} catch (err) {
+		status.value = "blad";
+		console.error(err);
+	}
 };
 </script>
 
@@ -16,7 +29,7 @@ const handleSubmit = async (e: Event) => {
 	<form @submit="handleSubmit">
 		<label>
 			Tresc:
-			<textarea rows="3" name="pytanie" type="text" />
+			<textarea required rows="3" name="pytanie" type="text" />
 		</label>
 		<label
 			>Kategoria:
@@ -26,10 +39,10 @@ const handleSubmit = async (e: Event) => {
 				</option>
 			</select></label
 		>
-		<label>Odp A: <input name="odpA" type="text" /></label>
-		<label>Odp B: <input name="odpB" type="text" /></label>
-		<label>Odp C: <input name="odpC" type="text" /></label>
-		<label>Odp D: <input name="odpD" type="text" /></label>
+		<label>Odp A: <input required name="odpA" type="text" /></label>
+		<label>Odp B: <input required name="odpB" type="text" /></label>
+		<label>Odp C: <input required name="odpC" type="text" /></label>
+		<label>Odp D: <input required name="odpD" type="text" /></label>
 		<label>
 			Poprawna odpowiedź:
 			<select name="poprawna">
@@ -41,7 +54,11 @@ const handleSubmit = async (e: Event) => {
 		<label>
 			Obrazek: <input type="file" name="obrazek" accept="image/*" />
 		</label>
-		<button type="submit">Zatwierdź</button>
+		<button v-if="status === 'sukces'" type="submit">Zatwierdź</button>
+		<button v-else-if="status === 'blad'" type="submit">
+			Spróbuj ponownie
+		</button>
+		<button v-else disabled type="submit">Wysyłam</button>
 	</form>
 </template>
 

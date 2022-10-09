@@ -25,7 +25,6 @@ func DodajPytanie(db *sql.DB) http.HandlerFunc {
 			OdpD:      r.Form.Get("odpD"),
 			Obrazek:   r.Form.Get("obrazek"),
 		}
-		pytanie.Id, _ = strconv.Atoi(r.Form.Get("id"))
 		pytanie.Poprawna, _ = strconv.Atoi(r.Form.Get("poprawna"))
 		sciezka, err := zdjecie.Zapisz(r)
 		if err != nil {
@@ -34,7 +33,10 @@ func DodajPytanie(db *sql.DB) http.HandlerFunc {
 		}
 		pytanie.Obrazek = sciezka
 
-		fmt.Printf("%#v\n", pytanie)
-		w.Write([]byte("aaa"))
+		query := fmt.Sprintf("INSERT INTO %s (Pytanie, Kategoria, OdpA, OdpB, OdpC, OdpD, Obrazek, Poprawna) VALUES ('%s','%s','%s','%s','%s','%s','%s',%d)", pytanie.Kategoria, pytanie.Pytanie, pytanie.Kategoria, pytanie.OdpA, pytanie.OdpB, pytanie.OdpC, pytanie.OdpD, pytanie.Obrazek, pytanie.Poprawna)
+		if _, err := db.Exec(query); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+		w.Write([]byte("Dodano pytanie"))
 	}
 }
