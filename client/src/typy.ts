@@ -11,3 +11,11 @@ export interface Pytanie {
 }
 
 export type kategoria = "e12" | "e13" | "e14" | "ee08" | "ee09";
+
+export const wszyskieKategorie: kategoria[] = [
+	"e12",
+	"e13",
+	"e14",
+	"ee08",
+	"ee09",
+];

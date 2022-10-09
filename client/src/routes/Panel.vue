@@ -1,11 +1,9 @@
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 import Modal from "../components/Modal.vue";
 import Tabela from "../components/Tabela.vue";
 import { usePanel } from "../stores/panel";
-import type { kategoria, Pytanie } from "../typy";
-
-const wszyskieKategorie: kategoria[] = ["e12", "e13", "e14", "ee08", "ee09"];
+import { kategoria, wszyskieKategorie } from "../typy";
 
 const store = usePanel();
 const handleInput = async (e: Event) => {

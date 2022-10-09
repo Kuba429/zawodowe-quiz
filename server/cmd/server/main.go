@@ -16,5 +16,6 @@ func Init(db *sql.DB) {
 	http.HandleFunc("/baza/reset", handle.ResetBazy(db))
 	http.HandleFunc("/update-pytanie", handle.UpdatePytanie(db))
 	http.HandleFunc("/usun-pytanie", handle.UsunPytanie(db))
+	http.HandleFunc("/dodaj-pytanie", handle.DodajPytanie(db))
 	log.Fatal(http.ListenAndServe(":3000", nil))
 }

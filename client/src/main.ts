@@ -6,6 +6,7 @@ import App from "./App.vue";
 import StronaGlowna from "./routes/StronaGlowna.vue";
 import Kategoria from "./routes/Kategoria.vue";
 import Panel from "./routes/Panel.vue";
+import Dodaj from "./routes/Dodaj.vue";
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -13,6 +14,7 @@ const router = createRouter({
 		{ path: "/", name: "Home", component: StronaGlowna },
 		{ path: "/pytanie/:kategoria?", name: "Pytanie", component: Kategoria },
 		{ path: "/panel", name: "Panel", component: Panel },
+		{ path: "/dodaj", name: "Dodaj", component: Dodaj },
 	],
 });
 
