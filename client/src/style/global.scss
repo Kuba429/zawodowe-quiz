@@ -16,7 +16,23 @@ html {
 body {
 	background-color: #f3f9ff;
 }
-
+form {
+	button {
+		border: none;
+		border-radius: 5px;
+		padding: 10px;
+		cursor: pointer;
+		font-size: inherit;
+		transition: ease all 0.2s;
+		background-color: $niebieski;
+		color: white;
+		border: 1px solid transparent;
+		&:hover {
+			border-color: $niebieski;
+			background-color: rgba($color: $niebieski, $alpha: 0.8);
+		}
+	}
+}
 label {
 	font-size: 1rem;
 	width: 100%;

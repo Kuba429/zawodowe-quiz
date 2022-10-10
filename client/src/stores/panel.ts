@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { sortUserPlugins } from "vite";
 import { kategoria, Pytanie } from "../typy";
 
 export const usePanel = defineStore("modal-store", {

@@ -147,16 +147,6 @@ form {
 		width: 100%;
 		& > button {
 			flex-grow: 1;
-			border: none;
-			border-radius: 5px;
-			padding: 10px;
-			cursor: pointer;
-			font-size: inherit;
-			border: 1px solid transparent;
-			transition: ease all 0.2s;
-			&:hover {
-				border-color: $niebieski;
-			}
 		}
 		& > .usun-pytanie {
 			background-color: rgba($color: red, $alpha: 0.7);
@@ -169,13 +159,7 @@ form {
 		}
 		& > button:nth-child(2) {
 			flex-grow: 5;
-			background-color: $niebieski;
-			color: white;
 			margin-left: auto;
-			border: 1px solid transparent;
-			&:hover {
-				background-color: rgba($color: $niebieski, $alpha: 0.8);
-			}
 		}
 	}
 	.obrazek-wrapper {
