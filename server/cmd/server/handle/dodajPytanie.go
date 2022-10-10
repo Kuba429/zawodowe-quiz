@@ -27,7 +27,7 @@ func DodajPytanie(db *sql.DB) http.HandlerFunc {
 			OdpD:      r.Form.Get("odpD"),
 			Obrazek:   r.Form.Get("obrazek"),
 		}
-		if !slices.CzyZawiera(kategorie.WszystkieKategorie, kategorie.Kategoria(pytanie.Kategoria)) {
+		if !slices.CzyZawiera(kategorie.WszystkieKategorie, pytanie.Kategoria) {
 			http.Error(w, "Nie ma takiej kategorii", http.StatusBadRequest)
 			return
 		}

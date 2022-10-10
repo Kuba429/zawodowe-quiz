@@ -28,7 +28,7 @@ func UpdatePytanie(db *sql.DB) http.HandlerFunc {
 			OdpD:      r.Form.Get("odpD"),
 			Obrazek:   r.Form.Get("obrazek"),
 		}
-		if !slices.CzyZawiera(kategorie.WszystkieKategorie, kategorie.Kategoria(pytanie.Kategoria)) {
+		if !slices.CzyZawiera(kategorie.WszystkieKategorie, pytanie.Kategoria) {
 			http.Error(w, "Nie ma takiej kategorii", http.StatusBadRequest)
 			return
 		}
@@ -44,7 +44,7 @@ func UpdatePytanie(db *sql.DB) http.HandlerFunc {
 			pytanie.Obrazek = sciezka
 		}
 		// usun stare zdjecie zanim zostanie nadpisane
-		zdjecie.Usun(db, pytanie.Id, kategorie.Kategoria(pytanie.Kategoria))
+		zdjecie.Usun(db, pytanie.Id, pytanie.Kategoria)
 
 		query := fmt.Sprintf(`
 		UPDATE %s SET

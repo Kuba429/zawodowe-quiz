@@ -5,12 +5,11 @@ import (
 	"fmt"
 	"os"
 	"strings"
-	"zawodowe-quiz/pkg/typy/kategorie"
 
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func Usun(db *sql.DB, id int, kat kategorie.Kategoria) {
+func Usun(db *sql.DB, id int, kat string) {
 	query := fmt.Sprintf("SELECT Obrazek from %s WHERE Id=%d;", kat, id)
 	row := db.QueryRow(query)
 	var res string

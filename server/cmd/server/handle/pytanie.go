@@ -33,7 +33,7 @@ func Pytanie(db *sql.DB) http.HandlerFunc {
 func WszystkiePytania(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
-		kat := kategorie.Kategoria(r.URL.Query().Get("kategoria"))
+		kat := r.URL.Query().Get("kategoria")
 		if !slices.CzyZawiera(kategorie.WszystkieKategorie, kat) {
 			w.WriteHeader(http.StatusNotFound)
 			return
@@ -56,8 +56,8 @@ func WszystkiePytania(db *sql.DB) http.HandlerFunc {
 	}
 }
 
-func czytajKategorie(r *http.Request) kategorie.Kategoria {
-	katQuery := kategorie.Kategoria(r.URL.Query().Get("kategoria"))
+func czytajKategorie(r *http.Request) string {
+	katQuery := r.URL.Query().Get("kategoria")
 	queryOk := slices.CzyZawiera(kategorie.WszystkieKategorie, katQuery)
 	if !queryOk {
 		src := rand.NewSource(time.Now().UnixMicro())

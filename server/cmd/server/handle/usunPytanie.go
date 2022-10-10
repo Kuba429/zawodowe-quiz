@@ -15,7 +15,7 @@ import (
 func UsunPytanie(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
-		kat := kategorie.Kategoria(r.URL.Query().Get("kategoria"))
+		kat := r.URL.Query().Get("kategoria")
 		if !slices.CzyZawiera(kategorie.WszystkieKategorie, kat) {
 			http.Error(w, "Nie ma takiej kategorii", http.StatusBadRequest)
 			return

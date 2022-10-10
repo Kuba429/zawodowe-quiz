@@ -6,11 +6,10 @@ import (
 	"io/ioutil"
 	"os"
 	"zawodowe-quiz/pkg/typy"
-	"zawodowe-quiz/pkg/typy/kategorie"
 )
 
-func WczytajPytania() (map[kategorie.Kategoria][]typy.Pytanie, error) {
-	var pytania map[kategorie.Kategoria][]typy.Pytanie
+func WczytajPytania() (map[string][]typy.Pytanie, error) {
+	var pytania map[string][]typy.Pytanie
 	plikJson, err := os.Open("pytaniaDomyslne.json")
 	if err != nil {
 		return pytania, errors.New("nie można otworzyć pliku z pytaniami")
