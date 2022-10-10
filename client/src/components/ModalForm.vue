@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
+import { API, HOST } from "../main";
 import { usePanel } from "../stores/panel";
 import { Pytanie, statusType } from "../typy";
 
@@ -19,7 +20,7 @@ const handleSubmit = async (e: Event) => {
 		formData.set("obrazek", pytanie.obrazek || "");
 	}
 	try {
-		const res = await fetch("http://localhost:3000/update-pytanie", {
+		const res = await fetch(`${API}/update-pytanie`, {
 			method: "post",
 			body: formData,
 		});
@@ -44,7 +45,7 @@ const handleZdjecieInput = async (e: Event) => {
 
 const handleUsun = async () => {
 	if (!pytanie.id || !confirm("Czy na pewno chcesz usunąć pytanie?")) return;
-	const url = new URL("http://localhost:3000/usun-pytanie");
+	const url = new URL(`${API}/usun-pytanie`);
 	url.search = new URLSearchParams({
 		kategoria: store.kategoria,
 		idPytania: pytanie.id.toString(),
@@ -97,9 +98,9 @@ const handleUsun = async () => {
 		</label>
 		<div class="obrazek-wrapper" v-if="pytanie.obrazek">
 			Obrazek:
-			<img :src="'http://localhost:3000' + pytanie.obrazek" alt="" />
+			<img :src="HOST + pytanie.obrazek" alt="" />
 			<button @click="pytanie.obrazek = ''">
-				<i class="nie-margin fa-solid fa-delete-left"></i>
+				<i class="brak-margin fa-solid fa-delete-left"></i>
 			</button>
 		</div>
 		<label class="obrazek-wrapper" v-else>
@@ -189,7 +190,7 @@ form {
 		}
 	}
 }
-i:not(.nie-margin) {
+i:not(.brak-margin) {
 	margin-left: 5px;
 }
 @media (max-width: 520px) {

@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { API, HOST } from "../main";
 import { Pytanie } from "../typy";
 
 type status = "success" | "error" | "loading";
@@ -15,7 +16,7 @@ export const usePStore = defineStore("pytanie-store", {
 	actions: {
 		async nowePytanie() {
 			this.status = "loading";
-			const url = new URL("http://localhost:3000/pytanie");
+			const url = new URL(`${API}/pytanie`);
 			this.kategoria &&
 				(url.search = new URLSearchParams({
 					kategoria: this.kategoria,
@@ -26,7 +27,7 @@ export const usePStore = defineStore("pytanie-store", {
 				const text = await (await res.blob()).text();
 				const p: Pytanie = JSON.parse(text);
 				if (p.obrazek) {
-					p.obrazek = "http://localhost:3000" + p.obrazek;
+					p.obrazek = HOST + p.obrazek;
 				}
 				this.pytanie = p;
 				const odpowiedzi = [p.odpA, p.odpB, p.odpC, p.odpD];

@@ -2,6 +2,7 @@
 import { reactive } from "vue";
 import TrescPytania from "./TrescPytania.vue";
 import { usePanel } from "../stores/panel";
+import { HOST } from "../main";
 export type reactiveType = { id: number; element: HTMLElement | undefined }[];
 
 const store = usePanel();
@@ -36,10 +37,7 @@ const pytaniaEl = reactive<reactiveType>([]);
 			</td>
 			<td>{{ ["A", "B", "C", "D"][p.poprawna] }}</td>
 			<td>
-				<img
-					v-if="p.obrazek"
-					:src="'http://localhost:3000' + p.obrazek"
-				/>
+				<img v-if="p.obrazek" :src="HOST + p.obrazek" />
 			</td>
 		</tr>
 	</table>

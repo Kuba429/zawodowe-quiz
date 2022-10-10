@@ -19,3 +19,6 @@ const router = createRouter({
 });
 
 createApp(App).use(router).use(createPinia()).mount("#app");
+
+export const HOST = import.meta.env.VITE_HOST || "http://localhost:3000";
+export const API = import.meta.env.VITE_API || "http://localhost:3000";

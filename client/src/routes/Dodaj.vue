@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { API } from "../main";
 import { statusType, wszyskieKategorie } from "../typy";
 
 const router = useRouter();
@@ -10,7 +11,7 @@ const handleSubmit = async (e: Event) => {
 	e.preventDefault();
 	const formData = new FormData(e.target as HTMLFormElement);
 	try {
-		const res = await fetch("http://localhost:3000/dodaj-pytanie", {
+		const res = await fetch(`${API}/dodaj-pytanie`, {
 			method: "post",
 			body: formData,
 		});

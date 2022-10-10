@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { API } from "../main";
 import { kategoria, Pytanie } from "../typy";
 
 export const usePanel = defineStore("modal-store", {
@@ -23,7 +24,7 @@ export const usePanel = defineStore("modal-store", {
 			this.modalPytanie = p;
 		},
 		async fetchPytania() {
-			const url = new URL("http://localhost:3000/wszystkie-pytania");
+			const url = new URL(`${API}/wszystkie-pytania`);
 			url.search = new URLSearchParams({
 				kategoria: this.kategoria,
 			}).toString();
