@@ -6,7 +6,9 @@ import (
 	"net/http"
 	"strconv"
 	"zawodowe-quiz/cmd/zdjecie"
+	"zawodowe-quiz/pkg/slices"
 	"zawodowe-quiz/pkg/typy"
+	"zawodowe-quiz/pkg/typy/kategorie"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -24,6 +26,10 @@ func DodajPytanie(db *sql.DB) http.HandlerFunc {
 			OdpC:      r.Form.Get("odpC"),
 			OdpD:      r.Form.Get("odpD"),
 			Obrazek:   r.Form.Get("obrazek"),
+		}
+		if !slices.CzyZawiera(kategorie.WszystkieKategorie, kategorie.Kategoria(pytanie.Kategoria)) {
+			http.Error(w, "Nie ma takiej kategorii", http.StatusBadRequest)
+			return
 		}
 		pytanie.Poprawna, _ = strconv.Atoi(r.Form.Get("poprawna"))
 		sciezka, err := zdjecie.Zapisz(r)
