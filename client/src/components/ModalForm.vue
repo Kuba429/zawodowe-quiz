@@ -98,7 +98,9 @@ const handleUsun = async () => {
 		<div class="obrazek-wrapper" v-if="pytanie.obrazek">
 			Obrazek:
 			<img :src="'http://localhost:3000' + pytanie.obrazek" alt="" />
-			<button @click="pytanie.obrazek = ''">usun</button>
+			<button @click="pytanie.obrazek = ''">
+				<i class="nie-margin fa-solid fa-delete-left"></i>
+			</button>
 		</div>
 		<label class="obrazek-wrapper" v-else>
 			Obrazek:
@@ -116,9 +118,11 @@ const handleUsun = async () => {
 		</label>
 		<div class="button-wrapper">
 			<button class="usun-pytanie" @click="handleUsun" type="button">
-				Usun
+				Usun <i class="fa-regular fa-trash-can"></i>
 			</button>
-			<button v-if="status === 'sukces'" type="submit">Zatwierdź</button>
+			<button v-if="status === 'sukces'" type="submit">
+				Zatwierdź <i class="fa-solid fa-check"></i>
+			</button>
 			<button v-else-if="status === 'blad'" type="submit">
 				spróbuj ponownie
 			</button>
@@ -177,6 +181,7 @@ form {
 			background-color: transparent;
 			color: red;
 			cursor: pointer;
+			padding: 5px 10px 5px 8px;
 			&:hover {
 				background-color: rgba($color: red, $alpha: 0.1);
 				border-radius: 2px;
@@ -184,7 +189,9 @@ form {
 		}
 	}
 }
-
+i:not(.nie-margin) {
+	margin-left: 5px;
+}
 @media (max-width: 520px) {
 	form {
 		width: 98vw;

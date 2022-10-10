@@ -25,7 +25,9 @@ onMounted(() => store.fetchPytania());
 				</option>
 			</select>
 		</label>
-		<RouterLink to="/dodaj">Dodaj pytanie</RouterLink>
+		<RouterLink to="/dodaj">
+			Dodaj pytanie <i class="fa-solid fa-plus"></i>
+		</RouterLink>
 	</div>
 	<Tabela />
 </template>
@@ -51,6 +53,19 @@ a {
 	&:hover {
 		background-color: $niebieski;
 		color: white;
+	}
+	i {
+		margin-left: 5px;
+	}
+}
+@media (max-width: 650px) {
+	.grid {
+		grid-template-columns: auto;
+		margin-top: 10px;
+		a {
+			justify-self: center;
+			grid-row: 1;
+		}
 	}
 }
 </style>

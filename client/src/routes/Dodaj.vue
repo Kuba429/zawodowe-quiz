@@ -22,6 +22,7 @@ const handleSubmit = async (e: Event) => {
 		console.error(err);
 	}
 };
+// todo placeholders
 </script>
 
 <template>
@@ -54,7 +55,9 @@ const handleSubmit = async (e: Event) => {
 		<label>
 			Obrazek: <input type="file" name="obrazek" accept="image/*" />
 		</label>
-		<button v-if="status === 'sukces'" type="submit">Zatwierdź</button>
+		<button v-if="status === 'sukces'" type="submit">
+			Zatwierdź <i class="fa-solid fa-check"></i>
+		</button>
 		<button v-else-if="status === 'blad'" type="submit">
 			Spróbuj ponownie
 		</button>
@@ -67,5 +70,8 @@ form {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
+}
+i {
+	margin-left: 5px;
 }
 </style>

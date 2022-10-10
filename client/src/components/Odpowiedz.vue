@@ -33,17 +33,31 @@ button {
 	font-size: 1rem;
 	text-align: left;
 	cursor: pointer;
+	&::after {
+		content: "";
+		color: white;
+		font-family: "Font Awesome 5 Free";
+		font-weight: 900;
+		transition: ease all 0.2s;
+		font-size: 90%;
+	}
 	&.czerwony {
 		$kolor: rgb(255, 72, 72);
 		background-color: $kolor;
 		border-color: $kolor;
 		color: white;
+		&::after {
+			content: " \f00d";
+		}
 	}
 	&.zielony {
 		$kolor: rgb(0, 208, 0);
 		background-color: $kolor;
 		border-color: $kolor;
 		color: white;
+		&::after {
+			content: " \f00c";
+		}
 	}
 	transition: ease all 0.2s;
 	&.active:active {
