@@ -67,16 +67,4 @@ form {
 	display: flex;
 	flex-direction: column;
 }
-label {
-	display: flex;
-	flex-wrap: wrap;
-}
-input,
-textarea {
-	flex-grow: 1;
-}
-textarea {
-	width: 100%;
-	max-width: 100%;
-}
 </style>

@@ -142,32 +142,9 @@ form {
 	padding: 2rem;
 	border-radius: 10px;
 	font-size: 1rem;
-	label {
-		font-size: 1rem;
-		width: 100%;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: flex-start;
-		align-items: center;
-		input:not([type="file"]),
-		textarea {
-			font-size: inherit;
-			border: none;
-			border-radius: 10px;
-			padding: 10px;
-			background-color: rgba($color: $niebieski, $alpha: 0.08);
-			flex-grow: 1;
-		}
-
-		textarea {
-			width: 100%;
-			max-width: 100%;
-		}
-	}
 	.button-wrapper {
 		display: flex;
 		width: 100%;
-
 		& > button {
 			flex-grow: 1;
 			border: none;
