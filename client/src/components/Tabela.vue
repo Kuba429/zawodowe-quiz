@@ -46,7 +46,6 @@ const pytaniaEl = reactive<reactiveType>([]);
 @use "../style/zmienne.scss" as *;
 table {
 	width: 100%;
-	padding-right: 5vw;
 }
 tr,
 td,

@@ -621,9 +621,9 @@
 		{
 			"pytanie": "Za pomocą testów statycznych okablowania można zdiagnozować",
 			"odpA": "przerwy w obwodzie",
-			"odpB": "zjawiskotłumienia",
+			"odpB": "zjawisko tłumienia",
 			"odpC": "różnicę opóźnien",
-			"odpD": "stratyodbiciowe",
+			"odpD": "straty odbiciowe",
 			"obrazek": "",
 			"poprawna": 0
 		},

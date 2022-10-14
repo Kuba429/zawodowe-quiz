@@ -22,7 +22,7 @@
 	color: $niebieski;
 	box-shadow: 0px 0px 3px 0px $niebieski;
 	font-size: 1.2rem;
-	padding: 10px;
+	padding: 10px 0;
 	box-sizing: content-box;
 	nav {
 		width: 90%;
