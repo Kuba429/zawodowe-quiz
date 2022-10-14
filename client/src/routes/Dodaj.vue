@@ -23,7 +23,6 @@ const handleSubmit = async (e: Event) => {
 		console.error(err);
 	}
 };
-// todo placeholders
 </script>
 
 <template>

@@ -1,237 +1,912 @@
 {
-    "e12": [
-        {
-            "pytanie": "Przedstawiony na rysunku kolor zapisany w modelu RGB, w systemie szesnastkowym będzie zdefiniowany następująco",
-            "odpA": "71A0B2",
-            "odpB": "77A1C1",
-            "odpC": "77A0C1",
-            "odpD": "76A3C1",
-            "obrazek": "/zdjecia/e12_1_06_2020.png",
-            "poprawna": 2
-        },
-        {
-            "pytanie": "Notacja #108 oznacza zapis liczby w systemie",
-            "odpA": "oktalnym",
-            "odpB": "binarnym",
-            "odpC": "dziesiętnym",
-            "odpD": "heksadecymalnym",
-            "obrazek": "",
-            "poprawna": 3
-        },
-        {
-            "pytanie": "Magistrala komunikacyjna PCI ver. 2.2 (Peripheral Interconnect) jest standardem magistrali, zgodnie z którym szyna danych ma maksymalną szerokość",
-            "odpA": "16bitów",
-            "odpB": "32bitów",
-            "odpC": "64bitów",
-            "odpD": "128bitów",
-            "obrazek": "",
-            "poprawna": 1
-        },
-        {
-            "pytanie": "Układ na karcie graficznej, którego zadaniem jest zamiana cyfrowego sygnału generowanego poprzez kartę na sygnał analogowy, który może być wyświetlony poprzez monitor to",
-            "odpA": "RAMBUS",
-            "odpB": "RAMDAC",
-            "odpC": "głowica FM",
-            "odpD": "multiplekser",
-            "obrazek": "",
-            "poprawna": 1
-        },
-        {
-            "pytanie": "Który układ mikroprocesora jest odpowiedzialny między innymi za pobieranie rozkazów z pamięci oraz generowanie sygnałów sterujących?",
-            "odpA": "ALU",
-            "odpB": "FPU",
-            "odpC": "IU",
-            "odpD": "EU",
-            "obrazek": "",
-            "poprawna": 2
-        }
-    ],
-    "e13": [
-        {
-            "pytanie": "Rysunek przedstawia topologię",
-            "odpA": "gwiazdy",
-            "odpB": "magistrali",
-            "odpC": "rozszerzonejgwiazdy",
-            "odpD": "podwójnegopierścienia",
-            "obrazek": "/zdjecia/e.13-SG-22.06-1.png",
-            "poprawna": "C"
-        },
-        {
-            "pytanie": "Zgodnie z normą PN-EN 50174 rozplot kabla UTP nie powinien być większy niż",
-            "odpA": "10mm",
-            "odpB": "13mm",
-            "odpC": "20mm",
-            "odpD": "30mm",
-            "obrazek": "",
-            "poprawna": 1
-        },
-        {
-            "pytanie": "Strzałka na rysunku przedstawiającym schemat systemu sieciowego według normy PN-EN 50173 wskazuje okablowanie",
-            "odpA": "poziome",
-            "odpB": "pionowe",
-            "odpC": "kampusowe",
-            "odpD": "szkieletowe zewnętrzne",
-            "obrazek": "",
-            "poprawna": 1
-        },
-        {
-            "pytanie": "Zgodnie z normą TIA/EIA-568-B.1 kabel UTP 5e z przeplotem jest tworzony poprzez zamianę ułożenia we wtyczce 8P8C następujących par przewodów (odpowiednio według kolorów):",
-            "odpA": "biało-zielonyizielonyzbiało-brązowymibrązowym.",
-            "odpB": "biało-zielonyizielonyzbiało-niebieskiminiebieskim.",
-            "odpC": "biało-pomarańczowyipomarańczowyzbiało-zielonymizielonym.",
-            "odpD": "biało-pomarańczowyipomarańczowyzbiało-brązowymibrązowym.",
-            "obrazek": "",
-            "poprawna": 2
-        },
-        {
-            "pytanie": "Organizacją publikującą dokumenty RFC (Request For Comments) regulujące rozwój Internetu jest",
-            "odpA": "IETF(InternetEngineeringTaskForce).",
-            "odpB": "ANSI (American National Standards Institute).",
-            "odpC": "ISO (International Organization for Standarization).",
-            "odpD": "IEEE (The Institute of Electrical and Electronics Engineers).",
-            "obrazek": "",
-            "poprawna": 0
-        }
-    ],
-    "e14": [
-        {
-            "pytanie": "Podany wpis w pliku HTML oznacza, że",
-            "odpA": "kod HTML zapisano w wersji 5 języka.",
-            "odpB": "kod HTML zapisano w wersji 4 języka.",
-            "odpC": "wszystkie znaczniki w kodzie HTML należy zapisywać wielkimi literami.",
-            "odpD": "znaczniki zamykające są obowiązkowe w kodzie HTML, również dla znaczników samozamykających się.",
-            "obrazek": "/zdjecia/e.14-SG-22.06-1.png",
-            "poprawna": 1
-        },
-        {
-            "pytanie": "Kodowanie polskich znaków można zdefiniować w języku HTML za pomocą",
-            "odpA": "znacznika <title>",
-            "odpB": "znacznika <charset>",
-            "odpC": "atrybutu znacznika <p>",
-            "odpD": "atrybutu znacznika <meta>",
-            "obrazek": "",
-            "poprawna": 3
-        },
-        {
-            "pytanie": "Które z podanych par znaczników HTML mają wizualnie to samo działanie na stronie internetowej, jeżeli żadne style CSS nie zostały zdefiniowane?",
-            "odpA": "<p> i <h2>",
-            "odpB": "<b> i <big>",
-            "odpC": "<b> i <strong>",
-            "odpD": "<meta> i <title>",
-            "obrazek": "",
-            "poprawna": 2
-        },
-        {
-            "pytanie": "W języku HTML zapisano definicję tabeli. Który rysunek obrazuje efekt jej działania?",
-            "odpA": "Rysunek 1",
-            "odpB": "Rysunek 2",
-            "odpC": "Rysunek 3",
-            "odpD": "Rysunek 4",
-            "obrazek": "/zdjecia/e.14-SG-22.06-4.png",
-            "poprawna": 0
-        },
-        {
-            "pytanie": "W przedstawionym fragmencie formularza HTML zdefiniowano pole input, o którym można powiedzieć, że",
-            "odpA": "ma wpisany domyślny tekst „pole”.",
-            "odpB": "ukrywa wprowadzone do niego znaki.",
-            "odpC": "wyświetla wprowadzone do niego znaki.",
-            "odpD": "umożliwia wpisywanie tylko wartości liczbowych.",
-            "obrazek": "/zdjecia/e.14-SG-22.06-5.png",
-            "poprawna": 1
-        }
-    ],
-    "ee08": [
-        {
-            "pytanie": "Wykonaj konwersję liczy dziesiętnej 129(10) na postać binarną.",
-            "odpA": "1000001(2)",
-            "odpB": "10000001(2)",
-            "odpC": "100000001(2",
-            "odpD": "1000000001(2)",
-            "obrazek": "",
-            "poprawna": 1
-        },
-        {
-            "pytanie": "Przedstawiony na rysunku symbol graficzny oznacza bramkę logiczną",
-            "odpA": "OR",
-            "odpB": "NOR",
-            "odpC": "AND",
-            "odpD": "NAND",
-            "obrazek": "/zdjecia/eE.08-SG-22.06-2.png",
-            "poprawna": 2
-        },
-        {
-            "pytanie": "Sygnał sterujący wysyłany przez procesor, umożliwiający zapis do urządzeń wejścia - wyjścia, został na schemacie oznaczony numerem",
-            "odpA": "1",
-            "odpB": "2",
-            "odpC": "3",
-            "odpD": "4",
-            "obrazek": "/zdjecia/eE.08-SG-22.06-3.png",
-            "poprawna": 3
-        },
-        {
-            "pytanie": "Który typ portu może być użyty do podłączenia dysku zewnętrznego do laptopa?",
-            "odpA": "AGP",
-            "odpB": "LPT",
-            "odpC": "USB",
-            "odpD": "DMA",
-            "obrazek": "",
-            "poprawna": 2
-        },
-        {
-            "pytanie": "Który z wymienionych interfejsów należy wybrać do podłączenia dysku SSD do płyty głównej komputera stacjonarnego, aby uzyskać największą prędkość zapisu i odczytu danych?",
-            "odpA": "ATA",
-            "odpB": "mSATA",
-            "odpC": "PCIExpress",
-            "odpD": "SATAExpress",
-            "obrazek": "",
-            "poprawna": 2
-        }
-    ],
-    "ee09": [
-        {
-            "pytanie": "Algorytm sortowania tablicy polegający na n-krotnym porównywaniu ze sobą dwóch sąsiadujących elementów tablicy i zamianie miejscami w przypadku spełnienia warunku jest nazywany sortowaniem",
-            "odpA": "szybkim",
-            "odpB": "przezwybór",
-            "odpC": "bąbelkowym",
-            "odpD": "przezscalanie",
-            "obrazek": "",
-            "poprawna": 2
-        },
-        {
-            "pytanie": "W sklepie z farbami jest ustalony schemat wyliczania ceny farby: za kolor niebieski i zielony przy pojemności 2 litry cena farby jest równa cenie bazowej + 20%. Wyrażenie logiczne zapisane w języku JavaScript sprawdzające tę regułę ma postać",
-            "odpA": "A",
-            "odpB": "B",
-            "odpC": "C",
-            "odpD": "D",
-            "obrazek": "/zdjecia/eE.09-SG-22.06-2.png",
-            "poprawna": 2
-        },
-        {
-            "pytanie": "Instrukcją równoważną funkcjonalnie do przedstawionej instrukcji JavaScript jest",
-            "odpA": "Kod 1",
-            "odpB": "Kod 2",
-            "odpC": "Kod 3",
-            "odpD": "Kod 4",
-            "obrazek": "/zdjecia/eE.09-SG-22.06-3.png",
-            "poprawna": 1
-        },
-        {
-            "pytanie": "Zmienna typu double może przyjąć wartości:",
-            "odpA": "＂Ala＂;'d'",
-            "odpB": "1,44;2,55",
-            "odpC": "2.4;4;3.2",
-            "odpD": "1979-12-05;12:33",
-            "obrazek": "",
-            "poprawna": 2
-        },
-        {
-            "pytanie": "W języku JavaScript metoda Math.random() ma za zadanie",
-            "odpA": "porównać dwa napisy",
-            "odpB": "zwrócić zaokrągloną liczbę",
-            "odpC": "zwrócićliczbępseudolosową",
-            "odpD": "zaokrąglić liczbę do najbliższej większej całkowitej",
-            "obrazek": "",
-            "poprawna": 2
-        }
-    ]
+	"e12": [
+		{
+			"pytanie": "Przedstawiony na rysunku kolor zapisany w modelu RGB, w systemie szesnastkowym będzie zdefiniowany następująco",
+			"odpA": "71A0B2",
+			"odpB": "77A1C1",
+			"odpC": "77A0C1",
+			"odpD": "76A3C1",
+			"obrazek": "/zdjecia/e12_1_06_2020.png",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Notacja #108 oznacza zapis liczby w systemie",
+			"odpA": "oktalnym",
+			"odpB": "binarnym",
+			"odpC": "dziesiętnym",
+			"odpD": "heksadecymalnym",
+			"obrazek": "",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Magistrala komunikacyjna PCI ver. 2.2 (Peripheral Interconnect) jest standardem magistrali, zgodnie z którym szyna danych ma maksymalną szerokość",
+			"odpA": "16 bitów",
+			"odpB": "32 bitów",
+			"odpC": "64 bitów",
+			"odpD": "128 bitów",
+			"obrazek": "",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Układ na karcie graficznej, którego zadaniem jest zamiana cyfrowego sygnału generowanego poprzez kartę na sygnał analogowy, który może być wyświetlony poprzez monitor to",
+			"odpA": "RAMBUS",
+			"odpB": "RAMDAC",
+			"odpC": "głowica FM",
+			"odpD": "multiplekser",
+			"obrazek": "",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Który układ mikroprocesora jest odpowiedzialny między innymi za pobieranie rozkazów z pamięci oraz generowanie sygnałów sterujących?",
+			"odpA": "ALU",
+			"odpB": "FPU",
+			"odpC": "IU",
+			"odpD": "EU",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Aby uzyskać największą prędkość przepływu danych w przypadku, gdy domowy ruter pracuje w paśmie częstotliwości 5 GHz, do notebooka powinno się zamontować bezprzewodową kartę sieciową pracującą w standardzie",
+			"odpA": "802.11a",
+			"odpB": "802.11b",
+			"odpC": "802.11g",
+			"odpD": "802.11n",
+			"obrazek": "",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Wynikiem działania przedstawionego układu logicznego po podaniu na wejściach A i B sygnałów logicznych A=1 i B=1 są wartości logiczne: ",
+			"odpA": "W=0 i C=0",
+			"odpB": "W=0 i C=1",
+			"odpC": "W=1 i C=0",
+			"odpD": "W=1 i C=1",
+			"obrazek": "/zdjecia/E.12-SG-22.06-7.png",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Aktualizacja systemów operacyjnych to proces, którego głównym zadaniem jest",
+			"odpA": "naprawa luk systemowych, które zmniejszają poziom bezpieczeństwa systemu.",
+			"odpB": "obniżenie bezpieczeństwa danych użytkownika.",
+			"odpC": "instalacja nowych aplikacji użytkowych.",
+			"odpD": "zmniejszenie fragmentacji danych.",
+			"obrazek": "",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "W którym modelu płyty głównej można zamontować procesor o podanych parametrach?",
+			"odpA": "Asrock 970 Extreme3 R2.0 s.AM3+",
+			"odpB": "MSI 970A-G43 PLUS AMD970A s.AM3",
+			"odpC": "Gigabyte GA-Z170X-Gaming3-EU DDR4 s.1151",
+			"odpD": "Asus SABERTOOTH Z97 MARK 1/USB 3.1 LGA 1150 ATX",
+			"obrazek": "/zdjecia/E.12-SG-22.06-9.png",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Aby komputer osobisty współpracował z urządzeniami korzystającymi z przedstawionych na rysunku złącz, należy wyposażyć go w interfejs",
+			"odpA": "HDMI",
+			"odpB": "DVI-A",
+			"odpC": "Fire Wire",
+			"odpD": "Display Port",
+			"obrazek": "/zdjecia/E.12-SG-22.06-10.png",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Liczba heksadecymalna 1E2F(16) zapisana w systemie oktalnym ma postać",
+			"odpA": "7277",
+			"odpB": "7727",
+			"odpC": "17057",
+			"odpD": "74274",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Liczbą dziesiętną, która odpowiada liczbie 11110101(U2), jest",
+			"odpA": "11",
+			"odpB": "-11",
+			"odpC": "245",
+			"odpD": "-245",
+			"obrazek": "",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Technologia procesorów serii Intel Core stosowana w modelach i5, i7 oraz i9, pozwalająca na zwiększenie taktowania w przypadku gdy komputer potrzebuje wyższej mocy obliczeniowej, to",
+			"odpA": "CrossFire",
+			"odpB": "BitLocker",
+			"odpC": "Turbo Boost",
+			"odpD": "Hyper Threading",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Jak nazywa się współpracujące z monitorami CRT urządzenie wskazujące z końcówką wyposażoną w światłoczuły element, która poprzez dotknięcie ekranu monitora powoduje przesłanie sygnału do komputera, umożliwiając w ten sposób lokalizację kursora?",
+			"odpA": "Ekran dotykowy.",
+			"odpB": "Pióro świetlne.",
+			"odpC": "Touchpad.",
+			"odpD": "Trackball.",
+			"obrazek": "",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Która karta graficzna NIE BĘDZIE współpracowała z monitorem, wyposażonym w złącza przedstawione na zdjęciu (zakładając, że do podłączenia monitora nie można zastosować adaptera)?",
+			"odpA": "Asus Radeon RX 550 4GB GDDR5 (128 bit), DVI-D, HDMI, DisplayPort",
+			"odpB": "Sapphire Fire Pro W9000 6GB GDDR5 (384 bit) 6x mini DisplayPort",
+			"odpC": "Fujitsu NVIDIA Quadro M2000 4GB GDDR5 (128 Bit) 4xDisplayPort",
+			"odpD": "HIS R7 240 2GB GDDR3 (128 bit) HDMI, DVI, D-Sub",
+			"obrazek": "/zdjecia/E.12-SG-22.01-5.png",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Który podzespół NIE JEST KOMPATYBILNY z płytą główną MSI A320M Pro-VD-S socket AM4, 1 x PCI-Ex16, 2 x PCI-Ex1, 4 x SATA III, 2 x DDR4- max 32 GB, 1 x D-SUB, 1x DVI-D, ATX?",
+			"odpA": "Karta graficzna Radeon RX 570 PCI-Ex16 4GB 256-bit 1310MHz HDMI, DVI, DP",
+			"odpB": "Pamięć RAM Crucial 8GB DDR4 2400MHz Ballistix Sport LT CL16",
+			"odpC": "Procesor AMD Ryzen 5 1600, 3.2GHz, s-AM4, 16MB",
+			"odpD": "Dysk twardy 500GB M.2 SSD S700 3D NAND",
+			"obrazek": "",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Na płycie głównej wyposażonej w gniazdo przedstawione na zdjęciu można zainstalować procesor",
+			"odpA": "Intel i9-7940X, s-2066 3.10GHz 19.25MB",
+			"odpB": "AMD FX-6300, s-AM3+, 3.5GHz, 14MB",
+			"odpC": "Intel Xeon E3-1240V5, 3.9GHz, s-1151",
+			"odpD": "AMD Sempron 2800+, 1600 MHz, s-754",
+			"obrazek": "/zdjecia/E.12-SG-22.01-7.png",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Wskaż wtyk zasilający, który podczas montażu zestawu komputerowego należy podłączyć do napędu optycznego",
+			"odpA": "A",
+			"odpB": "B",
+			"odpC": "C",
+			"odpD": "D",
+			"obrazek": "/zdjecia/E.12-SG-22.01-8.png",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "Aby uniknąć uszkodzenia sprzętu podczas modernizacji komputera przenośnego polegającej na wymianie modułów pamięci RAM należy",
+			"odpA": "podłączyć laptop do zasilacza awaryjnego, a następnie rozkręcić jego obudowę i przejść do montażu.",
+			"odpB": "przygotować pastę przewodzącą oraz nałożyć ją równomiernie na obudowę gniazd pamięci RAM.",
+			"odpC": "przewietrzyć pomieszczenie oraz założyć okulary wyposażone w powłokę antyrefleksyjną.",
+			"odpD": "rozłożyć i uziemić matę antystatyczną oraz założyć na nadgarstek opaskę antystatyczną.",
+			"obrazek": "",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Jeśli użytkownik wybierze pozycję wskazaną strzałką, będzie mógł zainstalować aktualizacje",
+			"odpA": "dotyczące luk w zabezpieczeniach o priorytecie krytycznym.",
+			"odpB": "usuwające usterkę krytyczną, niezwiązaną z zabezpieczeniami.",
+			"odpC": "powodujące uaktualnienie Windows 8.1 do systemu Windows 10.",
+			"odpD": "dotyczące sterowników lub nowego oprogramowania firmy Microsoft.",
+			"obrazek": "/zdjecia/E.12-SG-22.01-8.png",
+			"poprawna": 3
+		}
+	],
+	"e13": [
+		{
+			"pytanie": "Rysunek przedstawia topologię",
+			"odpA": "gwiazdy",
+			"odpB": "magistrali",
+			"odpC": "rozszerzonej gwiazdy",
+			"odpD": "podwójnego pierścienia",
+			"obrazek": "/zdjecia/e.13-SG-22.06-1.png",
+			"poprawna": "C"
+		},
+		{
+			"pytanie": "Zgodnie z normą PN-EN 50174 rozplot kabla UTP nie powinien być większy niż",
+			"odpA": "10mm",
+			"odpB": "13mm",
+			"odpC": "20mm",
+			"odpD": "30mm",
+			"obrazek": "",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Strzałka na rysunku przedstawiającym schemat systemu sieciowego według normy PN-EN 50173 wskazuje okablowanie",
+			"odpA": "poziome",
+			"odpB": "pionowe",
+			"odpC": "kampusowe",
+			"odpD": "szkieletowe zewnętrzne",
+			"obrazek": "",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Zgodnie z normą TIA/EIA-568-B.1 kabel UTP 5e z przeplotem jest tworzony poprzez zamianę ułożenia we wtyczce 8P8C następujących par przewodów (odpowiednio według kolorów):",
+			"odpA": "biało-zielony i zielony z biało-brązowym i brązowym.",
+			"odpB": "biało-zielony i zielony z biało-niebieskim i niebieskim.",
+			"odpC": "biało-pomarańczowy i pomarańczowy z biało-zielonym i zielonym.",
+			"odpD": "biało-pomarańczowy i pomarańczowy z biało-brązowym i brązowym.",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Organizacją publikującą dokumenty RFC (Request For Comments) regulujące rozwój Internetu jest",
+			"odpA": "IETF(InternetEngineeringTaskForce).",
+			"odpB": "ANSI (American National Standards Institute).",
+			"odpC": "ISO (International Organization for Standarization).",
+			"odpD": "IEEE (The Institute of Electrical and Electronics Engineers).",
+			"obrazek": "",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "Aby zabezpieczyć komunikację terminalową z serwerem, należy użyć połączenia z wykorzystaniem protokołu",
+			"odpA": "SSH",
+			"odpB": "SFTP",
+			"odpC": "TFTP",
+			"odpD": "Telnet",
+			"obrazek": "",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "W trakcie obserwacji pakietów za pomocą sniffera zauważono, że urządzenia komunikują się na portach 20 oraz 21. Oznacza to, zakładając domyślną konfigurację, że obserwowanym protokołem jest protokół",
+			"odpA": "FTP",
+			"odpB": "SSH",
+			"odpC": "DHCP",
+			"odpD": "SMTP",
+			"obrazek": "",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "Znak towarowy dla certyfikowanych produktów opartych na standardach IEEE 802.11 to",
+			"odpA": "DSL",
+			"odpB": "LTE",
+			"odpC": "Wi-Fi",
+			"odpD": "GSM",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Na przedstawionym rysunku urządzeniem, poprzez które połączone są komputery, jest",
+			"odpA": "ruter",
+			"odpB": "most",
+			"odpC": "przelącznik",
+			"odpD": "regenerator",
+			"obrazek": "/zdjecia/E.13-SG-22.06-10.png",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "Typ transmisji danych do jednego bądź kilku komputerów w jednej chwili, w której odbiorcy są widziani dla nadawcy jako pojedynczy grupowy odbiorca, to",
+			"odpA": "unicast",
+			"odpB": "anycast",
+			"odpC": "multicast",
+			"odpD": "broadcast",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Metoda dostępu do medium CSMA/CA jest stosowana w sieci o standardzie",
+			"odpA": "IEEE 802.1",
+			"odpB": "IEEE 802.3",
+			"odpC": "IEEE 802.8",
+			"odpD": "IEEE 802.11",
+			"obrazek": "",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Sieć komputerowa ograniczająca się do komputerów wyłącznie jednej organizacji, w której mogą istnieć usługi, realizowane przez serwery w sieci LAN, np. strony WWW, poczta elektroniczna to",
+			"odpA": "Intranet",
+			"odpB": "Internet",
+			"odpC": "Infranet",
+			"odpD": "Extranet",
+			"obrazek": "",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "Jakim kolorem jest oznaczona izolacja żyły skrętki w pierwszym pinie wtyku RJ45 w sekwencji połączeń T568A?",
+			"odpA": "Biało-zielonym",
+			"odpB": "Biało-brązowym",
+			"odpC": "Biało-niebieskim",
+			"odpD": "Biało-pomarańczowym",
+			"obrazek": "",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "Która wartość przepływności charakteryzuje standard 1000Base-T?",
+			"odpA": "1 Mbit/s",
+			"odpB": "1 MB/s",
+			"odpC": "1 Gbit/s",
+			"odpD": "1 GB/s",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Pierwsze znaki heksadecymalne adresu IPv6 typu link-local to",
+			"odpA": "FF30",
+			"odpB": "FE80",
+			"odpC": "2000",
+			"odpD": "3000",
+			"obrazek": "",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Jaka jest kolejność części adresu globalnego IPv6 typu unicast przedstawionego na rysunku?",
+			"odpA": "1 - identyfikator podsieci 2 - globalny prefiks 3 - identyfikator interfejsu.",
+			"odpB": "1 - globalny prefiks 2 - identyfikator interfejsu 3 - identyfikator podsieci.",
+			"odpC": "1 - identyfikator interfejsu, 2 - globalny prefiks 3 - identyfikator podsieci.",
+			"odpD": "1 - globalny prefiks, 2 - identyfikator podsieci, 3 - identyfikator interfejsu.",
+			"obrazek": "/zdjecia/E.13-SG-22.01-6.png",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Który protokół jest stosowany do terminalowego łączenia się ze zdalnymi urządzeniami zapewniający transfer zaszyfrowanych danych?",
+			"odpA": "SSL (Secure Socket Layer)",
+			"odpB": "SSH (S ecure S hell)",
+			"odpC": "Remote",
+			"odpD": "Telnet",
+			"obrazek": "",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Na schemacie znajdują się symbole",
+			"odpA": "3 przełączników i 4 ruterów",
+			"odpB": "4 przełączników i 3 ruterów",
+			"odpC": "4 przełączników i 8 ruterów",
+			"odpD": "8 przełączników i 3 ruterów",
+			"obrazek": "/zdjecia/E.13-SG-22.01-8.png",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Zjawisko przeniku, występujące w sieciach komputerowych polega na",
+			"odpA": "stratach sygnału w torze transmisyjnym.",
+			"odpB": "opóźnieniach propagacji sygnału w torze transmisyjnym.",
+			"odpC": "niejednorodności toru, spowodowanej zmianą geometrii par przewodów.",
+			"odpD": "przenikaniu sygnału pomiędzy sąsiadującymi w kablu parami przewodów.",
+			"obrazek": "",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Algorytm, który jest stosowany w celu sprawdzenia czy ramka Ethernet nie zawiera błędów, to",
+			"odpA": "LLC (Logical Link Control)",
+			"odpB": "MAC (Media Access Control)",
+			"odpC": "CRC (Cyclic Redundancy Check)",
+			"odpD": "CSMA (Carrier Sense Multiple Access)",
+			"obrazek": "",
+			"poprawna": 2
+		}
+	],
+	"e14": [
+		{
+			"pytanie": "Podany wpis w pliku HTML oznacza, że",
+			"odpA": "kod HTML zapisano w wersji 5 języka.",
+			"odpB": "kod HTML zapisano w wersji 4 języka.",
+			"odpC": "wszystkie znaczniki w kodzie HTML należy zapisywać wielkimi literami.",
+			"odpD": "znaczniki zamykające są obowiązkowe w kodzie HTML, również dla znaczników samozamykających się.",
+			"obrazek": "/zdjecia/e.14-SG-22.06-1.png",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Kodowanie polskich znaków można zdefiniować w języku HTML za pomocą",
+			"odpA": "znacznika <title>",
+			"odpB": "znacznika <charset>",
+			"odpC": "atrybutu znacznika <p>",
+			"odpD": "atrybutu znacznika <meta>",
+			"obrazek": "",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Które z podanych par znaczników HTML mają wizualnie to samo działanie na stronie internetowej, jeżeli żadne style CSS nie zostały zdefiniowane?",
+			"odpA": "<p> i <h2>",
+			"odpB": "<b> i <big>",
+			"odpC": "<b> i <strong>",
+			"odpD": "<meta> i <title>",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "W języku HTML zapisano definicję tabeli. Który rysunek obrazuje efekt jej działania?",
+			"odpA": "Rysunek 1",
+			"odpB": "Rysunek 2",
+			"odpC": "Rysunek 3",
+			"odpD": "Rysunek 4",
+			"obrazek": "/zdjecia/e.14-SG-22.06-4.png",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "W przedstawionym fragmencie formularza HTML zdefiniowano pole input, o którym można powiedzieć, że",
+			"odpA": "ma wpisany domyślny tekst „pole”.",
+			"odpB": "ukrywa wprowadzone do niego znaki.",
+			"odpC": "wyświetla wprowadzone do niego znaki.",
+			"odpD": "umożliwia wpisywanie tylko wartości liczbowych.",
+			"obrazek": "/zdjecia/e.14-SG-22.06-5.png",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "W języku HTML, aby zdefiniować hiperłącze otwierające się w osobnej karcie przeglądarki, należy zastosować atrybut",
+			"odpA": "A",
+			"odpB": "B",
+			"odpC": "C",
+			"odpD": "D",
+			"obrazek": "/zdjecia/E.14-SG-22.06-6.png",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Zastosowanie definicji stylu CSS sprawi, że nagłówki drugiego stopnia będą zapisane",
+			"odpA": "czcionką pochyloną, z linią nad tekstem, wysokość wiersza na 60 px",
+			"odpB": "czcionką pochyloną, z linią pod tekstem, wysokość wiersza na 60 px",
+			"odpC": "czcionką podstawową, z linią nad tekstem, wysokość wiersza na 60 px",
+			"odpD": "czcionką podstawową, z linią pod tekstem, odległość między znakami na 60 px",
+			"obrazek": "/zdjecia/E.14-SG-22.06-7.png",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "Jak zdefiniować w języku CSS takie formatowanie tabeli, żeby wiersz, na którym aktualnie znajduje się kursor myszy, zmieniał kolor tła na szary?",
+			"odpA": "A",
+			"odpB": "B",
+			"odpC": "C",
+			"odpD": "D",
+			"obrazek": "/zdjecia/E.14-SG-22.06-8.png",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "W języku CSS zapisano wspólne formatowanie dla pewnej grupy znaczników. Formatowanie takich znaczników w kodzie HTML nastąpi przez atrybut",
+			"odpA": "A",
+			"odpB": "B",
+			"odpC": "C",
+			"odpD": "D",
+			"obrazek": "/zdjecia/E.14-SG-22.06-9.png",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Przedstawiono efekt formatowania CSS oraz kod HTML. Jak należy zdefiniować styl, aby osiągnąć takie formatowanie?",
+			"odpA": "A",
+			"odpB": "B",
+			"odpC": "C",
+			"odpD": "D",
+			"obrazek": "/zdjecia/E.14-SG-22.06-10.png",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Wskaż znacznik HTML pozwalający na zapisanie tekstu nieprawidłowego lub nieodpowiedniego w sposób przekreślony.",
+			"odpA": "<s> </s>",
+			"odpB": "<b> </b>",
+			"odpC": "<em> </em>",
+			"odpD": "<sub> </sub>",
+			"obrazek": "",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "Element na obrazku jest stosowany do określenia metadanych strony internetowej dotyczących",
+			"odpA": "opisu strony",
+			"odpB": "języka strony",
+			"odpC": "słówkluczowych",
+			"odpD": "kodowania znaków",
+			"obrazek": "/zdjecia/E.14-SG-22.01-2.png",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "W języku HTML zdefiniowano listę, która",
+			"odpA": "jest punktowana z zagłębioną listą numerowaną",
+			"odpB": "jest numerowana z zagłębioną listą punktowaną",
+			"odpC": "nie ma zagłębień i jest punktowana, wyświetla 5 punktów",
+			"odpD": "nie ma zagłębień i jest numerowana, słowo „niebieski” ma przyporządkowany numer 5",
+			"obrazek": "/zdjecia/E.14-SG-22.01-3.png",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "W kaskadowych arkuszach stylów selektor klasy należy zdefiniować za pomocą symbolu",
+			"odpA": "*",
+			"odpB": "#",
+			"odpC": ".(kropka)",
+			"odpD": ":(dwukropek)",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Jaką szerokość strony pozostawiono na jej treść, na podstawie przedstawionej definicji CSS?",
+			"odpA": "2 px",
+			"odpB": "560 px",
+			"odpC": "600 px",
+			"odpD": "640 px",
+			"obrazek": "/zdjecia/E.14-SG-22.01-5.png",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Dla którego akapitu zastosowano przedstawioną właściwość stylu CSS?",
+			"odpA": "Akapit 1",
+			"odpB": "Akapit 2",
+			"odpC": "Akapit 3",
+			"odpD": "Akapit 4",
+			"obrazek": "/zdjecia/E.14-SG-22.01-6.png",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Aby za pomocą CSS zdefiniować przedstawione na rysunku opływanie obrazu tekstem należy w stylu obrazu wprowadzić zapis",
+			"odpA": "float: left;",
+			"odpB": "table: left;",
+			"odpC": "clear: both;",
+			"odpD": "float: right;",
+			"obrazek": "/zdjecia/E.14-SG-22.01-7.png",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Wskaż zapis stylu CSS formatujący punktor list numerowanych na wielkie cyfry rzymskie, a list punktowanych na kwadraty",
+			"odpA": "A",
+			"odpB": "B",
+			"odpC": "C",
+			"odpD": "D",
+			"obrazek": "/zdjecia/E.14-SG-22.01-8.png",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Który zestaw pojęć służy do definicji interfejsu użytkownika strony internetowej?",
+			"odpA": "Wysyłanie kwerend do bazy, skrypty PHP.",
+			"odpB": "Przyciski, menu, interakcja użytkownika z aplikacją.",
+			"odpC": "Szkic strony, diagram witryny, diagram przepływu informacji.",
+			"odpD": "Przetwarzanie informacji, system zarządzania treścią, projektowanie informacji.",
+			"obrazek": "",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Na rysunku pokazano schemat rozmieszczenia bloków na stronie WWW, w której jego części umieszcza się zwykle stopkę strony?",
+			"odpA": "1",
+			"odpB": "2",
+			"odpC": "4",
+			"odpD": "5",
+			"obrazek": "/zdjecia/E.14-SG-22.01-10.png",
+			"poprawna": 3
+		}
+	],
+	"ee08": [
+		{
+			"pytanie": "Wykonaj konwersję liczy dziesiętnej 129(10) na postać binarną.",
+			"odpA": "1000001(2)",
+			"odpB": "10000001(2)",
+			"odpC": "100000001(2)",
+			"odpD": "1000000001(2)",
+			"obrazek": "",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Przedstawiony na rysunku symbol graficzny oznacza bramkę logiczną",
+			"odpA": "OR",
+			"odpB": "NOR",
+			"odpC": "AND",
+			"odpD": "NAND",
+			"obrazek": "/zdjecia/eE.08-SG-22.06-2.png",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Sygnał sterujący wysyłany przez procesor, umożliwiający zapis do urządzeń wejścia - wyjścia, został na schemacie oznaczony numerem",
+			"odpA": "1",
+			"odpB": "2",
+			"odpC": "3",
+			"odpD": "4",
+			"obrazek": "/zdjecia/eE.08-SG-22.06-3.png",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Który typ portu może być użyty do podłączenia dysku zewnętrznego do laptopa?",
+			"odpA": "AGP",
+			"odpB": "LPT",
+			"odpC": "USB",
+			"odpD": "DMA",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Który z wymienionych interfejsów należy wybrać do podłączenia dysku SSD do płyty głównej komputera stacjonarnego, aby uzyskać największą prędkość zapisu i odczytu danych?",
+			"odpA": "ATA",
+			"odpB": "mSATA",
+			"odpC": "PCIExpress",
+			"odpD": "SATAExpress",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Jakie działanie powinien wykonać użytkownik, aby usunąć błąd oznaczony na rysunku ramką?",
+			"odpA": "Podłączyć monitor do złącza HDMI",
+			"odpB": "Zainstalować sterownik do karty graficznej",
+			"odpC": "Usunąć kartę graficzną z Menadżera urządzeń",
+			"odpD": "Zainstalować dodatek Service Pack systemu operacyjnego Service Pack 1",
+			"obrazek": "/zdjecia/EE.08-SG-22.06-6.png",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Shareware to rodzaj licencji polegającej na",
+			"odpA": "używaniu programu bezpłatnie, bez żadnych ograniczeń",
+			"odpB": "bezpłatnym rozprowadzaniu aplikacji bez ujawniania kodu źródłowego",
+			"odpC": "bezpłatnym rozpowszechnianiu programu na czas testów przed zakupem",
+			"odpD": "nieograniczonym korzystaniu z programu tylko na jednym urządzeniu",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Flaga ACK wysyłana w ramach protokołu TCP jest wykorzystywana do",
+			"odpA": "oznaczenia wskaźnika ważności pola",
+			"odpB": "realizacji żądania zakończenia sesji",
+			"odpC": "potwierdzenia otrzymania danych",
+			"odpD": "resetowania połączenia",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Za pomocą testów statycznych okablowania można zdiagnozować",
+			"odpA": "przerwy w obwodzie",
+			"odpB": "zjawiskotłumienia",
+			"odpC": "różnicę opóźnien",
+			"odpD": "stratyodbiciowe",
+			"obrazek": "",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "Którym symbolem należy opatrzyć sprzęt komputerowy spełniający wymagania prawne umożliwiające jego sprzedaż w Unii Europejskiej?",
+			"odpA": "Symbolem 1",
+			"odpB": "Symbolem 2",
+			"odpC": "Symbolem 3",
+			"odpD": "Symbolem 4",
+			"obrazek": "/zdjecia/EE.08-SG-22.06-10.png",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "Liczba 205(10) zapisana w systemie szesnastkowym ma wartość",
+			"odpA": "DC",
+			"odpB": "CD",
+			"odpC": "CC",
+			"odpD": "DD",
+			"obrazek": "",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Układ cyfrowy realizujący operację koniunkcji wykorzystuje bramkę logiczną",
+			"odpA": "OR",
+			"odpB": "AND",
+			"odpC": "NOT",
+			"odpD": "EX-OR",
+			"obrazek": "",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Którą funkcję realizuje przedstawiony układ?",
+			"odpA": "A",
+			"odpB": "B",
+			"odpC": "C",
+			"odpD": "D",
+			"obrazek": "/zdjecia/EE.08-SG-22.01-3.png",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Farad jest jednostką",
+			"odpA": "mocy",
+			"odpB": "rezystancji",
+			"odpC": "natężenia prądu",
+			"odpD": "pojemności elektrycznej",
+			"obrazek": "",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "Jeśli prędkość pobierania danych z Internetu przez urządzenie wynosi 8 Mb/s, w czasie 6 s można pobrać plik o wielkości maksymalnej równej",
+			"odpA": "2 MB",
+			"odpB": "4 MB",
+			"odpC": "6 MB",
+			"odpD": "8 MB",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Publikowana przez firmę Microsoft lista zgodności sprzętu z systemem operacyjnym Windows to",
+			"odpA": "HCL",
+			"odpB": "DOS",
+			"odpC": "GPT",
+			"odpD": "DSL",
+			"obrazek": "",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "Którym poleceniem należy się posłużyć do instalacji pakietów języka Python w systemie Ubuntu z oficjalnego repozytorium?",
+			"odpA": "yum install python3.6",
+			"odpB": "zypper install python3.6",
+			"odpC": "apt-get install python3.6",
+			"odpD": "pacman -S install python3.6",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Uprawnienia dostępu do plików w systemie Windows 10 można modyfikować za pomocą polecenia",
+			"odpA": "convert",
+			"odpB": "verify",
+			"odpC": "icacls",
+			"odpD": "set",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Wskaż znak towarowy, którym może posługiwać się producent wspierający finansowo funkcjonowanie systemu odzysku i recyklingu odpadów.",
+			"odpA": "Znak 1",
+			"odpB": "Znak 2",
+			"odpC": "Znak 3",
+			"odpD": "Znak 4",
+			"obrazek": "/zdjecia/EE.08-SG-22.01-9.png",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "Który skrót oznacza dużą sieć komputerową, obejmującą swoim zasięgiem miasto?",
+			"odpA": "LAN",
+			"odpB": "PAN",
+			"odpC": "MAN",
+			"odpD": "WAN",
+			"obrazek": "",
+			"poprawna": 2
+		}
+	],
+	"ee09": [
+		{
+			"pytanie": "Algorytm sortowania tablicy polegający na n-krotnym porównywaniu ze sobą dwóch sąsiadujących elementów tablicy i zamianie miejscami w przypadku spełnienia warunku jest nazywany sortowaniem",
+			"odpA": "szybkim",
+			"odpB": "przezwybór",
+			"odpC": "bąbelkowym",
+			"odpD": "przezscalanie",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "W sklepie z farbami jest ustalony schemat wyliczania ceny farby: za kolor niebieski i zielony przy pojemności 2 litry cena farby jest równa cenie bazowej + 20%. Wyrażenie logiczne zapisane w języku JavaScript sprawdzające tę regułę ma postać",
+			"odpA": "A",
+			"odpB": "B",
+			"odpC": "C",
+			"odpD": "D",
+			"obrazek": "/zdjecia/eE.09-SG-22.06-2.png",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Instrukcją równoważną funkcjonalnie do przedstawionej instrukcji JavaScript jest",
+			"odpA": "Kod 1",
+			"odpB": "Kod 2",
+			"odpC": "Kod 3",
+			"odpD": "Kod 4",
+			"obrazek": "/zdjecia/eE.09-SG-22.06-3.png",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Zmienna typu double może przyjąć wartości:",
+			"odpA": "＂Ala＂;'d'",
+			"odpB": "1,44;2,55",
+			"odpC": "2.4;4;3.2",
+			"odpD": "1979-12-05;12:33",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "W języku JavaScript metoda Math.random() ma za zadanie",
+			"odpA": "porównać dwa napisy",
+			"odpB": "zwrócić zaokrągloną liczbę",
+			"odpC": "zwrócić liczbę pseudolosową",
+			"odpD": "zaokrąglić liczbę do najbliższej większej całkowitej",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Jaki będzie efekt wykonania przedstawionych instrukcji JavaScript?",
+			"odpA": "Tylko dla elementu o id równym styl1 zostanie przypisany styl pogrubienia tekstu na bolder.",
+			"odpB": "Dla wszystkich elementów na stronie zostanie przypisany styl pogrubienia tekstu na bolder.",
+			"odpC": "Dla wszystkich elementów przypisanych do klasy styl1 zostanie nadany styl pogrubienia tekstu bolder",
+			"odpD": "Tylko dla pierwszego elementu przypisanego do klasy styl1 zostanie nadany styl pogrubienia tekstu bolder.",
+			"obrazek": "/zdjecia/EE.09-SG-22.06-6.png",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Po wykonaniu przedstawionego kodu JavaScript działającego na wcześniej zainicjalizowanej tablicy liczby w zmiennej wynik jest przechowywana suma",
+			"odpA": "dodatnich elementów tablicy",
+			"odpB": "wszystkich elementów tablicy",
+			"odpC": "parzystych elementów tablicy",
+			"odpD": "nieparzystych elementów tablicy",
+			"obrazek": "/zdjecia/EE.09-SG-22.06-7.png",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Ile iteracji zrealizuje przedstawiona pętla zapisana w języku PHP?",
+			"odpA": "0",
+			"odpB": "5",
+			"odpC": "25",
+			"odpD": "26",
+			"obrazek": "/zdjecia/EE.09-SG-22.06-8.png",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Przedstawiona funkcja zapisana w języku PHP",
+			"odpA": "zwraca wartość",
+			"odpB": "nie zwraca wartości",
+			"odpC": "pobiera dwa parametry z domyślną wartością",
+			"odpD": "jest zdefiniowana z dwoma parametrami rzeczywistymi",
+			"obrazek": "/zdjecia/EE.09-SG-22.06-9.png",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "Po wykonaniu przedstawionego kodu PHP w zmiennej $napis jest przechowywany ciąg znaków",
+			"odpA": "gr",
+			"odpB": "og",
+			"odpC": "gramo",
+			"odpD": "ogram",
+			"obrazek": "/zdjecia/EE.09-SG-22.06-10.png",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Które z poleceń algorytmu odpowiada graficznej reprezentacji bloku przedstawionego na obrazie?",
+			"odpA": "n > 70",
+			"odpB": "n ← n–3",
+			"odpC": "Wypiszwkonsolizmiennąn",
+			"odpD": "Wykonaj podprogram sortowania tablicy t",
+			"obrazek": "/zdjecia/EE.09-SG-22.01-1.png",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Metoda projektowania algorytmów, polegająca na podziale problemu na dwa lub więcej mniejszych podproblemów, tak długo aż fragmenty staną się wystarczająco proste do bezpośredniego rozwiązania, to",
+			"odpA": "dziel i zwyciężaj",
+			"odpB": "sito Eratostenesa",
+			"odpC": "słowa Fibonacciego",
+			"odpD": "sortowanie przez wybór",
+			"obrazek": "",
+			"poprawna": 0
+		},
+		{
+			"pytanie": "Program zapisany w języku C++ ma za zadanie wczytać zmienną całkowitą liczba i wyświetlić ją wtedy, gdy przyjmuje trzycyfrowe wartości parzyste. Instrukcja warunkowa sprawdzająca ten warunek powinna zawierać wyrażenie logiczne",
+			"odpA": "A",
+			"odpB": "B",
+			"odpC": "C",
+			"odpD": "D",
+			"obrazek": "/zdjecia/EE.09-SG-22.01-3.png",
+			"poprawna": 1
+		},
+		{
+			"pytanie": "Wskaż instrukcję równoważną funkcjonalnie do instrukcji while zapisanej w języku PHP.",
+			"odpA": "Instrukcja 1",
+			"odpB": "Instrukcja 2",
+			"odpC": "Instrukcja 3",
+			"odpD": "Instrukcja 4",
+			"obrazek": "/zdjecia/EE.09-SG-22.01-4.png",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Co będzie wynikiem po wywołaniu przedstawionego skryptu?",
+			"odpA": "Nie wyświetli się żaden napis",
+			"odpB": "Wyświetli się tylko napis „test1”",
+			"odpC": "Wyświetli się tylko napis „test2”",
+			"odpD": "Wyświetlą się oba napisy: „test1” i „test2”",
+			"obrazek": "/zdjecia/EE.09-SG-22.01-5.png",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "W języku C++ zdefiniowano zmienną char zm1[10]; Zmienna ta jest",
+			"odpA": "liczbą",
+			"odpB": "znakiem",
+			"odpC": "tablicą znaków",
+			"odpD": "tablicą łańcuchów",
+			"obrazek": "",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "Która definicja tablicy asocjacyjnej w języku PHP jest poprawna składniowo?",
+			"odpA": "A",
+			"odpB": "B",
+			"odpC": "C",
+			"odpD": "D",
+			"obrazek": "/zdjecia/EE.09-SG-22.01-7.png",
+			"poprawna": 2
+		},
+		{
+			"pytanie": "W języku JavaScript, aby sprawdzić jednym poleceniem czy dany napis zawiera w sobie inny napis, można skorzystać z metody",
+			"odpA": "repeat()",
+			"odpB": "substr()",
+			"odpC": "valueOf()",
+			"odpD": "includes()",
+			"obrazek": "",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "W jaki sposób w języku PHP należy ustawić zmienną sesji o nazwie wyborID na wartość 4?",
+			"odpA": "A",
+			"odpB": "B",
+			"odpC": "C",
+			"odpD": "D",
+			"obrazek": "/zdjecia/EE.09-SG-22.01-9.png",
+			"poprawna": 3
+		},
+		{
+			"pytanie": "W języku PHP zmienna $_SERVER przechowuje między innymi informacje o",
+			"odpA": "danych dotyczących sesji",
+			"odpB": "adresie IP serwera, nazwie protokołu",
+			"odpC": "danych formularza przetwarzanego na serwerze",
+			"odpD": "nazwie ciasteczek zapisanych na serwerze i danych z nimi związanych",
+			"obrazek": "",
+			"poprawna": 1
+		}
+	]
 }
