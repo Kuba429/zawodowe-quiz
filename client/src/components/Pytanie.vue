@@ -34,6 +34,8 @@ const store = usePStore();
 }
 img {
 	object-fit: contain;
+	width: 100%;
+	height: fit-content;
 }
 
 @media (max-width: 400px) {
