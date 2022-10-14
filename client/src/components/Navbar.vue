@@ -1,14 +1,4 @@
-<script lang="ts" setup>
-import { onMounted, ref } from "vue";
-const nav = ref<HTMLElement>();
-onMounted(() => {
-	if (!nav.value) return;
-	const wysokoscNav = nav.value.getBoundingClientRect().height;
-
-	document.querySelector<HTMLElement>("#app")!.style.marginTop =
-		wysokoscNav + "px";
-});
-</script>
+<script lang="ts" setup></script>
 <template>
 	<div class="nav-wrapper">
 		<nav ref="nav">
@@ -23,16 +13,17 @@ onMounted(() => {
 @use "../style/zmienne.scss" as *;
 
 .nav-wrapper {
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0;
+	left: 0;
+	width: 100%;
 	background-color: white;
 	color: $niebieski;
 	box-shadow: 0px 0px 3px 0px $niebieski;
 	font-size: 1.2rem;
 	padding: 10px;
 	box-sizing: content-box;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
 	nav {
 		width: 90%;
 		margin: auto;

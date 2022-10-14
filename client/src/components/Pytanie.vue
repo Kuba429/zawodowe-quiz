@@ -11,9 +11,9 @@ const store = usePStore();
 			:src="store.pytanie.obrazek"
 			alt="Obrazek do pytania"
 		/>
-		<div class="grid">
+		<ol class="grid">
 			<Odpowiedz v-for="odp in store.odpowiedzi" :odpowiedz="odp" />
-		</div>
+		</ol>
 	</div>
 </template>
 <style scoped lang="scss">
@@ -31,6 +31,10 @@ const store = usePStore();
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
 	gap: 5px;
+}
+ol {
+	list-style: upper-alpha;
+	padding: 0;
 }
 img {
 	object-fit: contain;

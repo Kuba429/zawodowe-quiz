@@ -18,16 +18,17 @@ const klasa = computed(() => ({
 }));
 </script>
 <template>
-	<button :class="klasa" @click="handleClick">
+	<li :class="klasa" @click="handleClick">
 		{{ odpowiedz }}
-	</button>
+	</li>
 </template>
 <style scoped lang="scss">
 @use "../style/zmienne.scss" as *;
-button {
+li {
 	padding: 10px;
 	border-radius: 7px;
 	border: solid 1px $niebieski;
+	list-style-position: inside;
 	color: $niebieski;
 	background-color: white;
 	font-size: 1rem;

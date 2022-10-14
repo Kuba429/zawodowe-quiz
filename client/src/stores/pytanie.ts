@@ -24,22 +24,25 @@ export const usePStore = defineStore("pytanie-store", {
 
 			try {
 				const res = await fetch(url);
-				const text = await (await res.blob()).text();
-				const p: Pytanie = JSON.parse(text);
+				const p: Pytanie = await res.json();
 				if (p.obrazek) {
 					p.obrazek = HOST + p.obrazek;
 				}
 				this.pytanie = p;
-				const odpowiedzi = [p.odpA, p.odpB, p.odpC, p.odpD];
+				let odpowiedzi = [p.odpA, p.odpB, p.odpC, p.odpD];
 
 				this.poprawnaOdp = odpowiedzi[p.poprawna];
-				this.odpowiedzi = odpowiedzi
-					.map((v) => ({
-						v,
-						idx: Math.random(),
-					}))
-					.sort((a, b) => b.idx - a.idx)
-					.map(({ v }) => v);
+				// nie mieszaj jeśli odpowiedzi to litery A,B,C,D
+				if (odpowiedzi[0] !== "A") {
+					odpowiedzi = odpowiedzi
+						.map((v) => ({
+							v,
+							idx: Math.random(),
+						}))
+						.sort((a, b) => b.idx - a.idx)
+						.map(({ v }) => v);
+				}
+				this.odpowiedzi = odpowiedzi;
 				this.wybranaOdp = "";
 				this.status = "success";
 			} catch (error) {
