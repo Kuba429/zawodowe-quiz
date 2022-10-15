@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"strconv"
 	"zawodowe-quiz/cmd/zdjecie"
@@ -48,17 +49,17 @@ func UpdatePytanie(db *pgxpool.Pool) http.HandlerFunc {
 
 		query := fmt.Sprintf(`
 		UPDATE %s SET
-		Pytanie = "%s",
-		OdpA = "%s",
-		OdpB = "%s",
-		OdpC = "%s",
-		OdpD = "%s",
-		Obrazek = "%s",
+		Pytanie = '%s',
+		OdpA = '%s',
+		OdpB = '%s',
+		OdpC = '%s',
+		OdpD = '%s',
+		Obrazek = '%s',
 		Poprawna = %d
 		WHERE Id = %d;
 		`, pytanie.Kategoria, pytanie.Pytanie, pytanie.OdpA, pytanie.OdpB, pytanie.OdpC, pytanie.OdpD, pytanie.Obrazek, pytanie.Poprawna, pytanie.Id)
-
 		if _, err := db.Exec(context.Background(), query); err != nil {
+			log.Println(err.Error())
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
 		pytanieJson, _ := json.Marshal(pytanie)

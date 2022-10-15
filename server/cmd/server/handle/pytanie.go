@@ -7,6 +7,7 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
+	"strconv"
 	"time"
 	"zawodowe-quiz/pkg/slices"
 	"zawodowe-quiz/pkg/typy"
@@ -20,11 +21,20 @@ func Pytanie(db *pgxpool.Pool) http.HandlerFunc {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		kat := czytajKategorie(r)
 		query := fmt.Sprintf("SELECT Id,Pytanie,OdpA,OdpB,OdpC,OdpD, Obrazek,Poprawna FROM %s ORDER BY RANDOM() LIMIT 1;", kat)
-		rows := db.QueryRow(context.Background(), query)
+		row := db.QueryRow(context.Background(), query)
 
-		var p typy.Pytanie
+		// postgres zwraca wartosci typu numerycznego w dziwnym formacie. Aby to naprawić poprawnaString zostanie zeskanowane do zmiennej 'poprawnaString' a następnie przekonwertowane na int
+		var poprawnaString string
 		// z jakiegoś powodu scan działa tylko po podaniu każdego pola oddzielnie; nie można podać całego pytania (typy.Pytanie) jako celu skanu
-		rows.Scan(&p.Id, &p.Pytanie, &p.OdpA, &p.OdpB, &p.OdpC, &p.OdpD, &p.Obrazek, &p.Poprawna)
+		var p typy.Pytanie
+		row.Scan(&p.Id, &p.Pytanie, &p.OdpA, &p.OdpB, &p.OdpC, &p.OdpD, &p.Obrazek, &poprawnaString)
+		poprawna, err := strconv.Atoi(poprawnaString)
+		if err != nil {
+			fmt.Println(err.Error())
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
+		p.Poprawna = poprawna
 		resJson, _ := json.Marshal(&p)
 		w.Write(resJson)
 	}
@@ -42,18 +52,26 @@ func WszystkiePytania(db *pgxpool.Pool) http.HandlerFunc {
 		rows, err := db.Query(context.Background(), query)
 		if err != nil {
 			log.Println(err)
-			w.WriteHeader(http.StatusNotFound)
+			http.Error(w, err.Error(), http.StatusNotFound)
 			return
 		}
 		var pytania []typy.Pytanie
 		for rows.Next() {
+			var poprawnaString string
 			var p typy.Pytanie
-			// TODO driver domyślnie nie wspiera typów numerycznych
-			rows.Scan(&p.Id, &p.Pytanie, &p.OdpA, &p.OdpB, &p.OdpC, &p.OdpD, &p.Obrazek, &p.Poprawna)
+			rows.Scan(&p.Id, &p.Pytanie, &p.OdpA, &p.OdpB, &p.OdpC, &p.OdpD, &p.Obrazek, &poprawnaString)
+			poprawna, err := strconv.Atoi(poprawnaString)
+			if err != nil {
+				log.Println(err)
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+				return
+			}
+			p.Poprawna = poprawna
 			pytania = append(pytania, p)
 		}
 		if rows.Err() != nil {
 			fmt.Println(rows.Err())
+			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
 		resJson, _ := json.Marshal(&pytania)
 		w.Write(resJson)
