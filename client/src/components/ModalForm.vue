@@ -92,7 +92,7 @@ const handleUsun = async () => {
 					:selected="pytanie.poprawna === litera"
 					:value="litera"
 				>
-					{{ litera }}
+					{{ litera.toUpperCase() }}
 				</option>
 			</select>
 		</label>
