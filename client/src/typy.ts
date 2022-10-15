@@ -7,7 +7,7 @@ export interface Pytanie {
 	odpC: string;
 	odpD: string;
 	obrazek: string;
-	poprawna: number;
+	poprawna: string;
 }
 
 export type kategoria = "e12" | "e13" | "e14" | "ee08" | "ee09";

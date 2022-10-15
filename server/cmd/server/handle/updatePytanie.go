@@ -26,6 +26,7 @@ func UpdatePytanie(db *sql.DB) http.HandlerFunc {
 			OdpB:      r.Form.Get("odpB"),
 			OdpC:      r.Form.Get("odpC"),
 			OdpD:      r.Form.Get("odpD"),
+			Poprawna:  r.Form.Get("poprawna"),
 			Obrazek:   r.Form.Get("obrazek"),
 		}
 		if !slices.CzyZawiera(kategorie.WszystkieKategorie, pytanie.Kategoria) {
@@ -33,7 +34,6 @@ func UpdatePytanie(db *sql.DB) http.HandlerFunc {
 			return
 		}
 		pytanie.Id, _ = strconv.Atoi(r.Form.Get("id"))
-		pytanie.Poprawna, _ = strconv.Atoi(r.Form.Get("poprawna"))
 
 		if !r.Form.Has("obrazek") {
 			sciezka, err := zdjecie.Zapisz(r)
@@ -54,7 +54,7 @@ func UpdatePytanie(db *sql.DB) http.HandlerFunc {
 		OdpC = "%s",
 		OdpD = "%s",
 		Obrazek = "%s",
-		Poprawna = %d
+		Poprawna = "%s"
 		WHERE Id = %d;
 		`, pytanie.Kategoria, pytanie.Pytanie, pytanie.OdpA, pytanie.OdpB, pytanie.OdpC, pytanie.OdpD, pytanie.Obrazek, pytanie.Poprawna, pytanie.Id)
 
