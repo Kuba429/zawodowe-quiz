@@ -23,6 +23,7 @@ const store = usePStore();
 	background-color: white;
 	border-radius: 10px;
 	margin: 1rem auto;
+	margin-top: 0;
 	padding: 1rem;
 	gap: 1rem;
 }

@@ -8,6 +8,7 @@ const handleReset = async () => {
 		return;
 	}
 	alert("Baza zresetowana");
+	window.dispatchEvent(new Event("baza-reset"));
 };
 </script>
 <template>

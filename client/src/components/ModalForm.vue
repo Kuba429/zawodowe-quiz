@@ -149,9 +149,11 @@ form {
 	font-size: 1rem;
 	.button-wrapper {
 		display: flex;
+		gap: 2px;
 		width: 100%;
 		& > button {
 			flex-grow: 1;
+			margin: 0;
 		}
 		& > .usun-pytanie {
 			background-color: rgba($color: red, $alpha: 0.7);

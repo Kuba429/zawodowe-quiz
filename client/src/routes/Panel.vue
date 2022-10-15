@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onMounted } from "vue";
+import { onMounted, onUnmounted } from "vue";
 import Modal from "../components/Modal.vue";
 import Tabela from "../components/Tabela.vue";
 import { usePanel } from "../stores/panel";
@@ -12,7 +12,13 @@ const handleInput = async (e: Event) => {
 	store.fetchPytania();
 };
 
-onMounted(() => store.fetchPytania());
+onMounted(() => {
+	window.addEventListener("baza-reset", store.fetchPytania);
+	store.fetchPytania();
+});
+onUnmounted(() => {
+	window.removeEventListener("baza-reset", store.fetchPytania);
+});
 </script>
 <template>
 	<Modal />
