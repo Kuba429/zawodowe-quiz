@@ -3,15 +3,20 @@ package main
 import (
 	"context"
 	"fmt"
+	"log"
 	"os"
 	"zawodowe-quiz/cmd/server"
 
 	"github.com/jackc/pgx/v5/pgxpool"
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	DB_URL := "postgres://localhost:5432/quiz_zawodowe"
-	conn, err := pgxpool.New(context.Background(), DB_URL)
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Println(err.Error())
+	}
+	conn, err := pgxpool.New(context.Background(), os.Getenv("DB_URL"))
 	if err != nil {
 		fmt.Println(err.Error())
 		os.Exit(1)

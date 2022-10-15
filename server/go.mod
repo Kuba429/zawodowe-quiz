@@ -2,7 +2,10 @@ module zawodowe-quiz
 
 go 1.18
 
-require github.com/jackc/pgx/v5 v5.0.3
+require (
+	github.com/jackc/pgx/v5 v5.0.3
+	github.com/joho/godotenv v1.4.0
+)
 
 require (
 	github.com/jackc/pgpassfile v1.0.0 // indirect
