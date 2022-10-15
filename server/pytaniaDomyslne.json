@@ -757,7 +757,7 @@
 		},
 		{
 			"pytanie": "Zmienna typu double może przyjąć wartości:",
-			"odpA": "＂Ala＂;'d'",
+			"odpA": "＂Ala＂;＇d＇",
 			"odpB": "1,44;2,55",
 			"odpC": "2.4;4;3.2",
 			"odpD": "1979-12-05;12:33",

@@ -1,13 +1,14 @@
 package server
 
 import (
-	"database/sql"
 	"log"
 	"net/http"
 	"zawodowe-quiz/cmd/server/handle"
+
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func Init(db *sql.DB) {
+func Init(db *pgxpool.Pool) {
 	fs := http.FileServer(http.Dir("./zdjecia"))
 	http.Handle("/zdjecia/", http.StripPrefix("/zdjecia/", fs))
 

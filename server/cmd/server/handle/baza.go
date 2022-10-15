@@ -1,19 +1,16 @@
 package handle
 
 import (
-	"database/sql"
 	"net/http"
 	"zawodowe-quiz/pkg/baza"
 
-	_ "github.com/mattn/go-sqlite3"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func ResetBazy(db *sql.DB) http.HandlerFunc {
+func ResetBazy(db *pgxpool.Pool) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		baza.Reset(db)
 		w.Write([]byte("Baza zresetowana"))
 	}
 }
-
-

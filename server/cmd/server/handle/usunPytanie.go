@@ -1,7 +1,7 @@
 package handle
 
 import (
-	"database/sql"
+	"context"
 	"fmt"
 	"net/http"
 	"strconv"
@@ -9,10 +9,10 @@ import (
 	"zawodowe-quiz/pkg/slices"
 	"zawodowe-quiz/pkg/typy/kategorie"
 
-	_ "github.com/mattn/go-sqlite3"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func UsunPytanie(db *sql.DB) http.HandlerFunc {
+func UsunPytanie(db *pgxpool.Pool) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		kat := r.URL.Query().Get("kategoria")
@@ -27,7 +27,7 @@ func UsunPytanie(db *sql.DB) http.HandlerFunc {
 		}
 		zdjecie.Usun(db, idPytania, kat)
 		query := fmt.Sprintf("DELETE FROM %s WHERE Id=%d;", kat, idPytania)
-		if _, err := db.Exec(query); err != nil {
+		if _, err := db.Exec(context.Background(), query); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
 		w.Write([]byte(fmt.Sprintf("Usunięto pytanie o id %d i kategorii %s", idPytania, kat)))

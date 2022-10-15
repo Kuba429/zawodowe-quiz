@@ -1,17 +1,22 @@
 package main
 
 import (
-	"database/sql"
+	"context"
+	"fmt"
+	"os"
 	"zawodowe-quiz/cmd/server"
 
-	_ "github.com/mattn/go-sqlite3"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 func main() {
-	db, err := sql.Open("sqlite3", "./baza.db")
+	DB_URL := "postgres://localhost:5432/quiz_zawodowe"
+	conn, err := pgxpool.New(context.Background(), DB_URL)
 	if err != nil {
-		panic("Nie udało się połączyć z bazą danych")
+		fmt.Println(err.Error())
+		os.Exit(1)
 	}
-	server.Init(db)
+	defer conn.Close()
+	server.Init(conn)
 
 }

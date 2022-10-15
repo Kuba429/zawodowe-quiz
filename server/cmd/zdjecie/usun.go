@@ -1,17 +1,17 @@
 package zdjecie
 
 import (
-	"database/sql"
+	"context"
 	"fmt"
 	"os"
 	"strings"
 
-	_ "github.com/mattn/go-sqlite3"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func Usun(db *sql.DB, id int, kat string) {
+func Usun(db *pgxpool.Pool, id int, kat string) {
 	query := fmt.Sprintf("SELECT Obrazek from %s WHERE Id=%d;", kat, id)
-	row := db.QueryRow(query)
+	row := db.QueryRow(context.Background(), query)
 	var res string
 	row.Scan(&res)
 

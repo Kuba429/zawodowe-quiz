@@ -1,7 +1,7 @@
 package handle
 
 import (
-	"database/sql"
+	"context"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -12,15 +12,15 @@ import (
 	"zawodowe-quiz/pkg/typy"
 	"zawodowe-quiz/pkg/typy/kategorie"
 
-	_ "github.com/mattn/go-sqlite3"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func Pytanie(db *sql.DB) http.HandlerFunc {
+func Pytanie(db *pgxpool.Pool) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		kat := czytajKategorie(r)
 		query := fmt.Sprintf("SELECT Id,Pytanie,OdpA,OdpB,OdpC,OdpD, Obrazek,Poprawna FROM %s ORDER BY RANDOM() LIMIT 1;", kat)
-		rows := db.QueryRow(query)
+		rows := db.QueryRow(context.Background(), query)
 
 		var p typy.Pytanie
 		// z jakiegoś powodu scan działa tylko po podaniu każdego pola oddzielnie; nie można podać całego pytania (typy.Pytanie) jako celu skanu
@@ -30,7 +30,7 @@ func Pytanie(db *sql.DB) http.HandlerFunc {
 	}
 }
 
-func WszystkiePytania(db *sql.DB) http.HandlerFunc {
+func WszystkiePytania(db *pgxpool.Pool) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		kat := r.URL.Query().Get("kategoria")
@@ -39,7 +39,7 @@ func WszystkiePytania(db *sql.DB) http.HandlerFunc {
 			return
 		}
 		query := fmt.Sprintf("SELECT Id,Pytanie,OdpA,OdpB,OdpC,OdpD,Obrazek,Poprawna FROM %s ORDER BY Id;", kat)
-		rows, err := db.Query(query)
+		rows, err := db.Query(context.Background(), query)
 		if err != nil {
 			log.Println(err)
 			w.WriteHeader(http.StatusNotFound)
@@ -48,8 +48,12 @@ func WszystkiePytania(db *sql.DB) http.HandlerFunc {
 		var pytania []typy.Pytanie
 		for rows.Next() {
 			var p typy.Pytanie
+			// TODO driver domyślnie nie wspiera typów numerycznych
 			rows.Scan(&p.Id, &p.Pytanie, &p.OdpA, &p.OdpB, &p.OdpC, &p.OdpD, &p.Obrazek, &p.Poprawna)
 			pytania = append(pytania, p)
+		}
+		if rows.Err() != nil {
+			fmt.Println(rows.Err())
 		}
 		resJson, _ := json.Marshal(&pytania)
 		w.Write(resJson)

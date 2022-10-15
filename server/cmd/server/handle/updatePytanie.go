@@ -1,7 +1,7 @@
 package handle
 
 import (
-	"database/sql"
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -11,10 +11,10 @@ import (
 	"zawodowe-quiz/pkg/typy"
 	"zawodowe-quiz/pkg/typy/kategorie"
 
-	_ "github.com/mattn/go-sqlite3"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func UpdatePytanie(db *sql.DB) http.HandlerFunc {
+func UpdatePytanie(db *pgxpool.Pool) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		r.ParseMultipartForm(1024 * 1024)
@@ -58,7 +58,7 @@ func UpdatePytanie(db *sql.DB) http.HandlerFunc {
 		WHERE Id = %d;
 		`, pytanie.Kategoria, pytanie.Pytanie, pytanie.OdpA, pytanie.OdpB, pytanie.OdpC, pytanie.OdpD, pytanie.Obrazek, pytanie.Poprawna, pytanie.Id)
 
-		if _, err := db.Exec(query); err != nil {
+		if _, err := db.Exec(context.Background(), query); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
 		pytanieJson, _ := json.Marshal(pytanie)

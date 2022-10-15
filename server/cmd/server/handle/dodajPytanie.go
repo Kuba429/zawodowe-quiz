@@ -1,7 +1,7 @@
 package handle
 
 import (
-	"database/sql"
+	"context"
 	"fmt"
 	"net/http"
 	"strconv"
@@ -10,10 +10,10 @@ import (
 	"zawodowe-quiz/pkg/typy"
 	"zawodowe-quiz/pkg/typy/kategorie"
 
-	_ "github.com/mattn/go-sqlite3"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func DodajPytanie(db *sql.DB) http.HandlerFunc {
+func DodajPytanie(db *pgxpool.Pool) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		r.ParseMultipartForm(1024 * 1024)
@@ -40,7 +40,7 @@ func DodajPytanie(db *sql.DB) http.HandlerFunc {
 		pytanie.Obrazek = sciezka
 
 		query := fmt.Sprintf("INSERT INTO %s (Pytanie, Kategoria, OdpA, OdpB, OdpC, OdpD, Obrazek, Poprawna) VALUES ('%s','%s','%s','%s','%s','%s','%s',%d)", pytanie.Kategoria, pytanie.Pytanie, pytanie.Kategoria, pytanie.OdpA, pytanie.OdpB, pytanie.OdpC, pytanie.OdpD, pytanie.Obrazek, pytanie.Poprawna)
-		if _, err := db.Exec(query); err != nil {
+		if _, err := db.Exec(context.Background(), query); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
 		w.Write([]byte("Dodano pytanie"))

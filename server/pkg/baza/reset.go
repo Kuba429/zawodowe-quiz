@@ -1,16 +1,16 @@
 package baza
 
 import (
-	"database/sql"
+	"context"
 	"fmt"
 	"log"
 	"os"
 	"zawodowe-quiz/cmd/zdjecie"
 
-	_ "github.com/mattn/go-sqlite3"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func Reset(db *sql.DB) {
+func Reset(db *pgxpool.Pool) {
 	// otwórz plik z domyślnymi pytaniami. Jeśli się nie uda, zatrzymaj funckję tutaj zanim rozpocznie się proces usuwania tabel
 	pytania, err := WczytajPytania()
 	if err != nil {
@@ -19,7 +19,8 @@ func Reset(db *sql.DB) {
 	}
 	// usuń wszystkie tabele
 	for kat := range pytania {
-		db.Exec(fmt.Sprintf("DROP TABLE %s;", kat))
+		db.Exec(context.Background(), fmt.Sprintf("DROP TABLE %s;", kat))
+		db.Exec(context.Background(), fmt.Sprintf("CREATE TABLE %s (%s);", kat, PolaTabeli))
 	}
 	// usun zdjęcia dodane przez użytkownikow (domyślne zdjęcia do pytań które nie zostaną usunięte są w folderze wyżej więc nie zostaną usunięte)
 	if err := os.RemoveAll(zdjecie.Folder); err != nil {
@@ -29,17 +30,16 @@ func Reset(db *sql.DB) {
 	// połącz wszystkie kwerendy w jedną aby ograniczyć zapytania do bazy danych
 	fullQuery := ""
 	for key, val := range pytania {
-		fullQuery += fmt.Sprintf("CREATE TABLE %s (%s);", key, PolaTabeli)
 		for _, pytanie := range val {
 			fullQuery += fmt.Sprintf(`
-			INSERT INTO %s (Pytanie, Kategoria, OdpA, OdpB, OdpC, OdpD, Obrazek, Poprawna) VALUES ("%s","%s","%s","%s","%s","%s","%s","%d");`,
+			INSERT INTO %s (Pytanie, Kategoria, OdpA, OdpB, OdpC, OdpD, Obrazek, Poprawna) VALUES ('%s','%s','%s','%s','%s','%s','%s','%d');`,
 				key, pytanie.Pytanie, key, pytanie.OdpA, pytanie.OdpB, pytanie.OdpC, pytanie.OdpD, pytanie.Obrazek, pytanie.Poprawna)
 		}
 	}
 	{
-		_, err := db.Exec(fullQuery)
+		_, err := db.Exec(context.Background(), fullQuery)
 		if err != nil {
-			log.Println(err)
+			log.Println(err.Error())
 			return
 		}
 	}
@@ -47,7 +47,7 @@ func Reset(db *sql.DB) {
 }
 
 const PolaTabeli = `
-Id INTEGER PRIMARY KEY AUTOINCREMENT,
+Id SERIAL PRIMARY KEY,
 Pytanie text NOT NULL,
 Kategoria text,
 OdpA text NOT NULL,
