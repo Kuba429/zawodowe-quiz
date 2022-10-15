@@ -7,7 +7,6 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
-	"strconv"
 	"time"
 	"zawodowe-quiz/pkg/slices"
 	"zawodowe-quiz/pkg/typy"
@@ -22,19 +21,9 @@ func Pytanie(db *pgxpool.Pool) http.HandlerFunc {
 		kat := czytajKategorie(r)
 		query := fmt.Sprintf("SELECT Id,Pytanie,OdpA,OdpB,OdpC,OdpD, Obrazek,Poprawna FROM %s ORDER BY RANDOM() LIMIT 1;", kat)
 		row := db.QueryRow(context.Background(), query)
-
-		// postgres zwraca wartosci typu numerycznego w dziwnym formacie. Aby to naprawić poprawnaString zostanie zeskanowane do zmiennej 'poprawnaString' a następnie przekonwertowane na int
-		var poprawnaString string
 		// z jakiegoś powodu scan działa tylko po podaniu każdego pola oddzielnie; nie można podać całego pytania (typy.Pytanie) jako celu skanu
 		var p typy.Pytanie
-		row.Scan(&p.Id, &p.Pytanie, &p.OdpA, &p.OdpB, &p.OdpC, &p.OdpD, &p.Obrazek, &poprawnaString)
-		poprawna, err := strconv.Atoi(poprawnaString)
-		if err != nil {
-			fmt.Println(err.Error())
-			w.WriteHeader(http.StatusInternalServerError)
-			return
-		}
-		p.Poprawna = poprawna
+		row.Scan(&p.Id, &p.Pytanie, &p.OdpA, &p.OdpB, &p.OdpC, &p.OdpD, &p.Obrazek, &p.Poprawna)
 		resJson, _ := json.Marshal(&p)
 		w.Write(resJson)
 	}
@@ -57,16 +46,8 @@ func WszystkiePytania(db *pgxpool.Pool) http.HandlerFunc {
 		}
 		var pytania []typy.Pytanie
 		for rows.Next() {
-			var poprawnaString string
 			var p typy.Pytanie
-			rows.Scan(&p.Id, &p.Pytanie, &p.OdpA, &p.OdpB, &p.OdpC, &p.OdpD, &p.Obrazek, &poprawnaString)
-			poprawna, err := strconv.Atoi(poprawnaString)
-			if err != nil {
-				log.Println(err)
-				http.Error(w, err.Error(), http.StatusInternalServerError)
-				return
-			}
-			p.Poprawna = poprawna
+			rows.Scan(&p.Id, &p.Pytanie, &p.OdpA, &p.OdpB, &p.OdpC, &p.OdpD, &p.Obrazek, &p.Poprawna)
 			pytania = append(pytania, p)
 		}
 		if rows.Err() != nil {

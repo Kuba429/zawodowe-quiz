@@ -23,19 +23,19 @@ const pytaniaEl = reactive<reactiveType>([]);
 		<tr @click="store.ustaw(p)" v-for="p in store.pytania">
 			<td>{{ p.id }}</td>
 			<TrescPytania :p="p" :pytania-el="pytaniaEl" />
-			<td :class="{ poprawna: p.poprawna === 0 }">
+			<td :class="{ poprawna: p.poprawna === 'a' }">
 				{{ p.odpA }}
 			</td>
-			<td :class="{ poprawna: p.poprawna === 1 }">
+			<td :class="{ poprawna: p.poprawna === 'b' }">
 				{{ p.odpB }}
 			</td>
-			<td :class="{ poprawna: p.poprawna === 2 }">
+			<td :class="{ poprawna: p.poprawna === 'c' }">
 				{{ p.odpC }}
 			</td>
-			<td :class="{ poprawna: p.poprawna === 3 }">
+			<td :class="{ poprawna: p.poprawna === 'd' }">
 				{{ p.odpD }}
 			</td>
-			<td>{{ ["A", "B", "C", "D"][p.poprawna] }}</td>
+			<td>{{ p.poprawna.toUpperCase() }}</td>
 			<td>
 				<img v-if="p.obrazek" :src="HOST + p.obrazek" />
 			</td>

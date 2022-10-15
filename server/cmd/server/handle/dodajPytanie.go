@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"net/http"
-	"strconv"
 	"zawodowe-quiz/cmd/zdjecie"
 	"zawodowe-quiz/pkg/slices"
 	"zawodowe-quiz/pkg/typy"
@@ -25,13 +24,13 @@ func DodajPytanie(db *pgxpool.Pool) http.HandlerFunc {
 			OdpB:      r.Form.Get("odpB"),
 			OdpC:      r.Form.Get("odpC"),
 			OdpD:      r.Form.Get("odpD"),
+			Poprawna:  r.Form.Get("poprawna"),
 			Obrazek:   r.Form.Get("obrazek"),
 		}
 		if !slices.CzyZawiera(kategorie.WszystkieKategorie, pytanie.Kategoria) {
 			http.Error(w, "Nie ma takiej kategorii", http.StatusBadRequest)
 			return
 		}
-		pytanie.Poprawna, _ = strconv.Atoi(r.Form.Get("poprawna"))
 		sciezka, err := zdjecie.Zapisz(r)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -39,7 +38,7 @@ func DodajPytanie(db *pgxpool.Pool) http.HandlerFunc {
 		}
 		pytanie.Obrazek = sciezka
 
-		query := fmt.Sprintf("INSERT INTO %s (Pytanie, Kategoria, OdpA, OdpB, OdpC, OdpD, Obrazek, Poprawna) VALUES ('%s','%s','%s','%s','%s','%s','%s',%d)", pytanie.Kategoria, pytanie.Pytanie, pytanie.Kategoria, pytanie.OdpA, pytanie.OdpB, pytanie.OdpC, pytanie.OdpD, pytanie.Obrazek, pytanie.Poprawna)
+		query := fmt.Sprintf("INSERT INTO %s (Pytanie, Kategoria, OdpA, OdpB, OdpC, OdpD, Obrazek, Poprawna) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s')", pytanie.Kategoria, pytanie.Pytanie, pytanie.Kategoria, pytanie.OdpA, pytanie.OdpB, pytanie.OdpC, pytanie.OdpD, pytanie.Obrazek, pytanie.Poprawna)
 		if _, err := db.Exec(context.Background(), query); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}

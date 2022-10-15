@@ -88,11 +88,11 @@ const handleUsun = async () => {
 			Poprawna odpowiedź:
 			<select name="poprawna">
 				<option
-					v-for="n in [0, 1, 2, 3]"
-					:selected="pytanie.poprawna === n"
-					:value="n"
+					v-for="litera in ['a', 'b', 'c', 'd']"
+					:selected="pytanie.poprawna === litera"
+					:value="litera"
 				>
-					{{ ["A", "B", "C", "D"][n] }}
+					{{ litera }}
 				</option>
 			</select>
 		</label>

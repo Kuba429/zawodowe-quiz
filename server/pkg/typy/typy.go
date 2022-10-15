@@ -9,5 +9,5 @@ type Pytanie struct {
 	OdpC      string `json:"odpC"`
 	OdpD      string `json:"odpD"`
 	Obrazek   string `json:"obrazek"`
-	Poprawna  int    `json:"poprawna"`
+	Poprawna  string `json:"poprawna"`
 }

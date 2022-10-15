@@ -47,8 +47,8 @@ const handleSubmit = async (e: Event) => {
 		<label>
 			Poprawna odpowiedź:
 			<select name="poprawna">
-				<option v-for="n in [0, 1, 2, 3]" :value="n">
-					{{ ["A", "B", "C", "D"][n] }}
+				<option v-for="litera in ['a', 'b', 'c', 'd']" :value="litera">
+					{{ litera.toUpperCase() }}
 				</option>
 			</select>
 		</label>

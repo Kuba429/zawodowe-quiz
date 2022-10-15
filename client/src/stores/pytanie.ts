@@ -31,7 +31,10 @@ export const usePStore = defineStore("pytanie-store", {
 				this.pytanie = p;
 				let odpowiedzi = [p.odpA, p.odpB, p.odpC, p.odpD];
 
-				this.poprawnaOdp = odpowiedzi[p.poprawna];
+				const idx = ["a", "b", "c", "d"].findIndex(
+					(l) => l.toLowerCase() === p.poprawna.toLowerCase()
+				);
+				this.poprawnaOdp = odpowiedzi[idx];
 				// nie mieszaj jeśli odpowiedzi to litery A,B,C,D
 				if (odpowiedzi[0] !== "A") {
 					odpowiedzi = odpowiedzi
