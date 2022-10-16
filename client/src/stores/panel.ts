@@ -19,9 +19,11 @@ export const usePanel = defineStore("modal-store", {
 		},
 		zamknij() {
 			this.modalPytanie = null;
+			document.body.style.overflow = "visible";
 		},
 		ustaw(p: Pytanie) {
 			this.modalPytanie = p;
+			document.body.style.overflow = "hidden";
 		},
 		async fetchPytania() {
 			const url = new URL(`${API}/wszystkie-pytania`);
