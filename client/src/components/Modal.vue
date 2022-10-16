@@ -45,6 +45,7 @@ $animacja-czas: 0.3s; // 300ms powiazane z timeoutem
 	width: 100%;
 	background-color: rgba($color: $niebieski, $alpha: 0.2);
 	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
 	animation: modal-tlo-in $animacja-czas ease;
 	&.wyjscie {
 		animation-name: modal-tlo-out;
