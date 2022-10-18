@@ -5,7 +5,9 @@ const store = usePStore();
 </script>
 <template>
 	<div class="flex">
-		{{ store.pytanie?.pytanie }}
+		<p class="tresc">
+			{{ store.pytanie?.pytanie }}
+		</p>
 		<img
 			v-if="store.pytanie?.obrazek"
 			:src="store.pytanie.obrazek"
@@ -33,6 +35,11 @@ const store = usePStore();
 	grid-template-rows: 1fr 1fr;
 	gap: 5px;
 }
+.tresc {
+	padding: 0;
+	margin: 0;
+	font-size: 1.2rem;
+}
 ol {
 	list-style: upper-alpha;
 	padding: 0;
@@ -41,6 +48,7 @@ img {
 	object-fit: contain;
 	width: 100%;
 	height: fit-content;
+	max-height: 90vh;
 }
 
 @media (max-width: 400px) {
