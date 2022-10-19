@@ -13,7 +13,9 @@ const handleReset = async () => {
 </script>
 <template>
 	<footer>
-		<a href="#"><i class="fa-regular fa-file"></i>Dokumentacja</a>
+		<a href="/dok.zip" download
+			><i class="fa-regular fa-file"></i>Dokumentacja</a
+		>
 		<a href="https://github.com/Kuba429/zawodowe-quiz" target="_blank">
 			<i class="fa-brands fa-github"></i> Github
 		</a>
